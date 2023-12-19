@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(circle, #33ccff, #ff99cc);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 65px;
+    background: linear-gradient(-45deg, #f36c43, #f32d79, #139bcc, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradiente 15s ease infinite;
+    box-shadow: 8px 3px 7px 3px #4f4a4a;
+
+
+}
+
+@keyframes gradiente {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.contenedor_boton {
+    width: 220px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10;
+}
+
+main {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 100px;
+}
+
+.contenedor {
+    height: 350px;
+    width: 320px;
+    border: 1px solid black;
+}
