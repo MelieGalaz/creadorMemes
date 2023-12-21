@@ -1,23 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
 }
 
 body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: radial-gradient(circle, #33ccff, #ff99cc);
+    background-image: url(imagenes/stars-7088.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    color: transparent;
+    font-size: 1.6em;
+    background: linear-gradient(90deg, #080808, #404af4);
+    background-size: 200% 200%;
+    animation: animacionGradiente 5s infinite;
+    -webkit-background-clip: text;
+
+
+}
+
+@keyframes animacionGradiente {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 header {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin: 0;
     height: 65px;
-    background: linear-gradient(-45deg, #f36c43, #f32d79, #139bcc, #23d5ab);
+    background: linear-gradient(-45deg, #f32d79, #139bcc, #23d5ab);
     background-size: 400% 400%;
     animation: gradiente 15s ease infinite;
     box-shadow: 8px 3px 7px 3px #4f4a4a;
@@ -58,5 +89,24 @@ main {
 .contenedor {
     height: 350px;
     width: 320px;
-    border: 1px solid black;
+    border: 1px solid #fafafa10;
+    background: #fafafa10;
+    backdrop-filter: blur(0.8em);
+
+}
+
+.boton_nav {
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: transparent;
+    border: none;
+    padding: 4px 4px;
+
+}
+
+.boton_nav:hover {
+    color: rgb(214, 214, 214);
+    text-shadow: 3px 6px 8px #000000;
 }
