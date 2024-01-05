@@ -107,6 +107,34 @@ main {
 }
 
 .boton_nav:hover {
-    color: rgb(214, 214, 214);
+    color: rgb(139, 212, 241);
     text-shadow: 3px 6px 8px #000000;
+}
+
+.modo-oscuro h1 {
+    text-align: center;
+    color: white;
+    font-size: 1.6em;
+}
+
+.modo-oscuro header {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: 65px;
+    background: linear-gradient(-45deg, #0c0c0c, #8f8f8f);
+    background-size: 400% 400%;
+    animation: gradiente 15s ease infinite;
+    box-shadow: 8px 3px 7px 3px #4f4a4a;
+}
+
+.modo-oscuro .boton_nav {
+    color: aliceblue;
+    font-size: 0.9em;
+}
+
+.modo-oscuro .boton_nav:hover {
+    border-bottom: 1px solid white;
+    text-shadow: 2px 2px 9px #9a9696;
+
 }
