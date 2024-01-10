@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Oswald', sans-serif;
-    
+
 }
 
 body {
@@ -18,7 +18,8 @@ body {
     background-size: cover;
 }
 
-h1, h2 {
+h1,
+h2 {
     text-align: center;
     color: transparent;
     font-size: 1.6em;
@@ -27,12 +28,15 @@ h1, h2 {
     animation: animacionGradiente 5s infinite;
     -webkit-background-clip: text;
 }
-h2{
-    
+
+h2 {
+
     font-size: 1.4em;
 }
-.texto-meme{
-    color: #878a8c;;
+
+.texto-meme {
+    color: #878a8c;
+    ;
 }
 
 @keyframes animacionGradiente {
@@ -53,7 +57,6 @@ header {
     display: flex;
     justify-content: center;
     margin: 0;
-    height:10%;
     background: linear-gradient(-45deg, #f32d79, #139bcc, #23d5ab);
     background-size: 400% 400%;
     animation: gradiente 15s ease infinite;
@@ -80,29 +83,53 @@ header {
     width: 220px;
     display: flex;
     justify-content: space-around;
-    padding: 10;
 }
-.contenedor-padre{
+
+.contenedor-padre {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-main{
+
+main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     margin-top: 20px;
     gap: 20px;
-    flex-direction: column;
+
 }
+
 .contenedor {
-    height: 350px;
-    width: 320px;
+    height: 344px;
+    width: 332px;
     border: 1px solid #fafafa10;
     background: #fafafa10;
     backdrop-filter: blur(0.8em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.contenedor_imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    height: 100%;
+    border: 1px solid rgb(238, 208, 208);
+}
+
+.imagenInterna img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 
 }
 
@@ -122,7 +149,7 @@ main{
     text-shadow: 3px 6px 8px #000000;
 }
 
-.modo-oscuro h1  {
+.modo-oscuro h1 {
     text-align: center;
     color: white;
     font-size: 1.6em;
@@ -147,24 +174,41 @@ main{
     text-shadow: 2px 2px 9px #9a9696;
 
 }
-aside{
+
+aside {
     display: none;
-    height: 174px;
-    width: 320px;
+    height: 178px;
+    width: 332px;
     overflow: scroll;
     color: rgb(27, 27, 27);
     background: linear-gradient(-45deg, #f32d79, #139bcc, #23d5ab);
     background-size: 400% 400%;
     animation: gradiente 15s ease infinite;
 }
+
+[type="checkbox"] {
+    display: none;
+}
+
+.cruz-panel {
+    display: none;
+    font-size: 1.2em;
+    text-align: right;
+    display: block;
+    padding: 5px 7px;
+}
+
 .modo-oscuro aside {
     background: linear-gradient(-45deg, #0c0c0c, #8f8f8f);
     background-size: 400% 400%;
     animation: gradiente 15s ease infinite;
-}
-.modo-oscuro h2{
     color: white;
 }
+
+.modo-oscuro h2 {
+    color: white;
+}
+
 /*aside {
     color: azure;
     width: 20%;
@@ -179,6 +223,6 @@ aside{
 
 }*/
 
-.oculto{
+.oculto {
     display: none;
 }

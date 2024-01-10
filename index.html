@@ -17,8 +17,9 @@
         <nav>
             <h1>Generador de Memes</h1>
             <div class="contenedor_boton">
-                <button class="boton_nav imagen" onclick="mostrarPanel()"><i class="fa-regular fa-image"></i>imagen</button>
-                <button class="boton_nav texto"><i class="fa-solid fa-font"></i>texto</button>
+                <button class="boton_nav imagen" onclick="mostrarPanel()"><i
+                        class="fa-regular fa-image"></i>imagen</button>
+                <button class="boton_nav texto" onclick="mostrarPanel()"><i class="fa-solid fa-font"></i>texto</button>
                 <button class="boton_nav " id="modoOscuroBtn"><i class="fa-regular fa-lightbulb"></i>Modo
                     oscuro</button>
             </div>
@@ -29,18 +30,19 @@
         <div class="contenedor-padre">
             <div class="contenedor">
                 <h2 class="texto-meme">Texto superior</h2>
-                <div class="contenedor_imagen"></div>
+                <div class="imagenInterna contenedor_imagen"></div>
                 <h2 class="texto-meme">Texto inferior</h2>
             </div>
             <button>Descargar meme</button>
         </div>
 
         <aside id="panel">
-            <section class="sec-imagen contenedor-menus" >
-                <input type="checkbox" name="" onclick="ocultarPanel()">
+            <section class="sec-imagen contenedor-menus">
+                <input type="checkbox" id="activar-imagen" name="" onclick="ocultarPanel()">
+                <label for="activar-imagen"><i class="fa-solid fa-xmark cruz-panel"></i></label>
                 <h2>IMAGEN</h2>
-                <p>URL</p>
-                <input type="text">
+                <label for="cargarImagen">Cargar Imagen:</label>
+                <input type="file" id="cargarImagen" name="" accept="imagen/png, imagen/gif, imagen/jpg">
                 <div>
                     <h3>FONDO</h3>
                     <input type="color">
@@ -78,7 +80,8 @@
 
             </section>
             <section class="sec-texto contenedor-menus">
-                <input type="checkbox" name="" onclick="ocultarPanel()" >
+                <input type="checkbox" name="" id="activar-texto" onclick="ocultarPanel()">
+                <label for="activar-texto"><i class="fa-solid fa-xmark cruz-panel"></i></label>
                 <h2>TEXTO</h2>
                 <div>
                     <h3>SUPERIOR</h3>

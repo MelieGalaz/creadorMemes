@@ -3,7 +3,8 @@ const body = document.body;
 const sectionImagen = document.querySelector(".sec-imagen");
 const sectionTexto = document.querySelector(".sec-texto");
 const panelAside = document.querySelector("#panel");
-
+const divImagen = document.querySelector(".contenedorImagen")
+const cargarImagen = document.getElementById("cargarImagen")
 
 modoOscuroBtn.addEventListener('click', () => {
     body.classList.toggle('modo-oscuro');
@@ -14,12 +15,14 @@ modoOscuroBtn.addEventListener('click', () => {
         modoOscuroBtn.innerHTML = '<i class="fa-regular fa-lightbulb"></i>Modo oscuro';
     }
 });
-function mostrarPanel(){
-document.getElementById("panel").style.display="block";
+
+function mostrarPanel() {
+    document.getElementById("panel").style.display = "block";
 }
-function ocultarPanel(){
-    document.getElementById("panel").style.display="none";
-    }
+
+function ocultarPanel() {
+    document.getElementById("panel").style.display = "none";
+}
 
 document.querySelector(".imagen").addEventListener("click", (e) => {
     sectionTexto.classList.add("oculto");
@@ -35,3 +38,16 @@ document.querySelector(".texto").addEventListener("click", (e) => {
     e.preventDefault();
 })
 
+cargarImagen.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const imgElement = document.createElement("img");
+            imgElement.src = e.target.result;
+            const divImagen = document.querySelector(".imagenInterna");
+            divImagen.appendChild(imgElement);
+        };
+        reader.readAsDataURL(file);
+    }
+});
