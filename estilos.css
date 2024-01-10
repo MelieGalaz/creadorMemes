@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Oswald', sans-serif;
+    
 }
 
 body {
@@ -47,7 +48,7 @@ header {
     display: flex;
     justify-content: center;
     margin: 0;
-    height: 65px;
+    height:10%;
     background: linear-gradient(-45deg, #f32d79, #139bcc, #23d5ab);
     background-size: 400% 400%;
     animation: gradiente 15s ease infinite;
@@ -76,16 +77,17 @@ header {
     justify-content: space-around;
     padding: 10;
 }
-
-main {
-    margin: 0 auto;
+.contenedor-padre{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
-    padding-top: 100px;
+    height: 80vh;
 }
-
+body main{
+    justify-content: center;
+    align-items: center;
+}
 .contenedor {
     height: 350px;
     width: 320px;
@@ -136,5 +138,17 @@ main {
 .modo-oscuro .boton_nav:hover {
     border-bottom: 1px solid white;
     text-shadow: 2px 2px 9px #9a9696;
+
+}
+
+aside {
+    display:none;
+    color: azure;
+    width: 20%;
+    height: 100%;
+    background-color: #6eaec2;
+    position: absolute;
+    top: 0;
+    right: 0;
 
 }

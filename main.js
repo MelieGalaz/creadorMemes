@@ -10,3 +10,4 @@ modoOscuroBtn.addEventListener('click', () => {
         modoOscuroBtn.innerHTML = '<i class="fa-regular fa-lightbulb"></i>Modo oscuro';
     }
 });
+
