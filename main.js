@@ -51,3 +51,13 @@ cargarImagen.addEventListener("change", (e) => {
         reader.readAsDataURL(file);
     }
 });
+function cargarFoto() {
+    const urlInput = document.getElementById('urlInput').value;
+    const imagenContainer = document.querySelector('.imagenInterna');
+
+    const imagen = document.createElement('img');
+    imagen.src = urlInput;
+
+    imagenContainer.innerHTML = ''; 
+    imagenContainer.appendChild(imagen);
+    }

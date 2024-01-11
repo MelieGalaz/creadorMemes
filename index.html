@@ -41,8 +41,13 @@
                 <input type="checkbox" id="activar-imagen" name="" onclick="ocultarPanel()">
                 <label for="activar-imagen"><i class="fa-solid fa-xmark cruz-panel"></i></label>
                 <h2>IMAGEN</h2>
+                <div class="contenedor-carga-fotos">
                 <label for="cargarImagen">Cargar Imagen:</label>
-                <input type="file" id="cargarImagen" name="" accept="imagen/png, imagen/gif, imagen/jpg">
+                <input type="file" id="cargarImagen"  accept="imagen/png, imagen/gif, imagen/jpg">
+
+                <label for="urlInput">URL de la Foto:</label>
+                <input type="text" id="urlInput" oninput="cargarFoto()" required>
+                </div>
                 <div>
                     <h3>FONDO</h3>
                     <input type="color">
