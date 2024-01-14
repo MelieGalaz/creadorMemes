@@ -42,43 +42,45 @@
                 <label for="activar-imagen"><i class="fa-solid fa-xmark cruz-panel"></i></label>
                 <h2>IMAGEN</h2>
                 <div class="contenedor-carga-fotos">
-                <label for="cargarImagen">Cargar Imagen:</label>
-                <input type="file" id="cargarImagen"  accept="imagen/png, imagen/gif, imagen/jpg">
+                    <label for="cargarImagen">Cargar Imagen:</label>
+                    <input type="file" id="cargarImagen" accept="imagen/png, imagen/gif, imagen/jpg">
 
-                <label for="urlInput">URL de la Foto:</label>
-                <input type="text" id="urlInput" oninput="cargarFoto()" required>
+                    <label for="urlInput">URL de la Foto:</label>
+                    <input type="text" id="urlInput" oninput="cargarFoto()" required>
                 </div>
                 <div>
                     <h3>FONDO</h3>
-                    <input type="color">
-                    <div>
-                        <p>NINGUNO</p>
-                        <p>ACLARAR</p>
-                        <p>OSCURECER</p>
-                        <p>LUMINOSIDAD</p>
-                        <p>MULTIPLICAR</p>
-                        <p>DIFERENCIA</p>
+                    <div class="contenedor-fondo-foto">
+                        <input type="color">
+                        <select name="" id="">
+                            <option value="unset">Ninguno</option>
+                            <option value="multiply">Multiplicar</option>
+                            <option value="linhten">Aclarar</option>
+                            <option value="darken">Oscurecer</option>
+                            <option value="difference">Diferencia</option>
+                            <option value="luminosity">luminosidad</option>
+                        </select>
                     </div>
-                    <div>
+                    <div class="contenedor-filtos-imagen">
                         <h3>FILTROS</h3>
-                        <p>BRILLO</p>
-                        <input type="range">
-                        <p>OPACIDAD</p>
-                        <input type="range">
-                        <p>CONTRASTE</p>
-                        <input type="range">
-                        <p>DESENFOQUE</p>
-                        <input type="range">
-                        <p>ESCALAS DE GRISES</p>
-                        <input type="range">
-                        <p>SEPIA</p>
-                        <input type="range">
-                        <p>HUE</p>
-                        <input type="range">
-                        <p>SATURADO</p>
-                        <input type="range">
-                        <p>NEGATIVO</p>
-                        <input type="range">
+                        <label for="brillo">Brillo</label>
+                        <input type="range" id="brillo" min="0" max="1" value="1" step="0.1">
+                        <label for="opacidad">Opacidad</label>
+                        <input type="range" id="opacidad" min="0" max="1" value="1" step="0.1">
+                        <label for="contraste">Contraste</label>
+                        <input type="range" id="contraste" min="100" max="1000" value="100">
+                        <label for="desenfoque">Desenfoque</label>
+                        <input type="range" id="desenfoque" min="0" max="10" value="0" step=".01">
+                        <label for="escala-grises"> Escala de grises</label>
+                        <input type="range" id="escala-grises" min="0" max="100" value="0">
+                        <label for="sepia">Sepia</label>
+                        <input type="range" id="sepia" min="0" max="10" value="0">
+                        <label for="hue">Hue</label>
+                        <input type="range" id="hue" min="0" max="360" value="0">
+                        <label for="salurado">Saturado</label>
+                        <input type="range" id="saturado" min="100" max="1000" value="100" step="10">
+                        <label for="negativo">Negativo</label>
+                        <input type="range" id="negativo" min="0" max="1" value="0" step="0.1">
                     </div>
                     <button>REESTABLECER FILTROS</button>
                 </div>
@@ -90,31 +92,80 @@
                 <h2>TEXTO</h2>
                 <div>
                     <h3>SUPERIOR</h3>
-                    <input type="text">
-                    <input type="checkbox">
-                    <p>Sin texto superior</p>
+                    <textarea name="" id="tex-superior">Texto superior</textarea>
+                    <input type="checkbox" id="sin-tex-superior">
+                    <label for="sin-tex-superior">Sin texto superior</label>
                 </div>
                 <div>
                     <h3>INFERIOR</h3>
-                    <input type="text">
-                    <input type="checkbox">
-                    <p>Sin texto inferior</p>
+                    <textarea name="" id="tex-inferior">texto inferior</textarea>
+                    <input type="checkbox" id="sin-tex-inferior">
+                    <label for="sin-tex-inferior">Sin texto inferior</label>
                 </div>
                 <div>
                     <h3>FUENTE</h3>
-                    <div>
+                    <select name="tex-familia" id="familia-fuentes">
                         <p>Arial</p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
+                        <option value="Arial">Arial</option>
+                        <option value="Arial-Black">Arial Black</option>
+                        <option value="American-Typewriter">American Typewriter</option>
+                        <option value="Andale-mono">Andale mono</option>
+                        <option value="Comic-Sans-Ms">Comic Sans Ms</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Times-New-Roman">Times New Roman</option>
+                    </select>
+                    <div class="tamaño-posicion-tex">
+                        <div>
+                            <input type="number" name="tamaño-tex" id="texto-tamaño" min="10" value="50">
+                        </div>
+                        <div class="tex-posicion">
+                            <span class="posicion" id="texto-derecha">
+                                <i class="fa-solid fa-align-left"></i>
+                            </span>
+                            <span class="posicion" id="texto-centro">
+                                <i class="fa-solid fa-align-center"></i>
+                            </span>
+                            <span class="posicion" id="texto-izquierda">
+                                <i class="fa-solid fa-align-right"></i>
+                            </span>
+                        </div>
                     </div>
-
                 </div>
+                <div class="contenedor-color-tex">
+                    <h3>COLOR</h3>
+                    <div class="color-texto">
+                        <input type="color" class="color-letra">
+                        <p>#000000</p>
+                    </div>
+                    <h3>FONFO</h3>
+                    <div class="color-tex-fondo">
+                        <input type="color" class="color-fondo">
+                        <p>#ffffff</p>
+                    </div>
+                    <input type="checkbox" id="fondo-transparente">
+                    <label for="fondo-transparente">Fondo transparente</label>
+                </div>
+                <h3>CONTORNO</h3>
+                <div class="contorno">
+                    <button>Ninguno</button>
+                    <button>Claro</button>
+                    <button>Oscuro</button>
+                </div>
+                <div class="espaciado">
+                    <h3>ESPACIADO</h3>
+                    <input type="number" id="espaciado-tex">
+                </div>
+                <h3>INTERLINEADO</h3>
+                <select id="interlineado-tex">
+                    <option value="0.8">0.8</option>
+                    <option value="1">1</option>
+                    <option value="1.2">1.2</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2">2</option>
+                    <option value="2.5">2.5</option>
+                </select>
             </section>
         </aside>
     </main>

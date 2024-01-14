@@ -187,7 +187,13 @@ aside {
     animation: gradiente 15s ease infinite;
 }
 
-[type="checkbox"] {
+/*[type="checkbox"] {
+    display: none;
+}*/
+#activar-texto{
+    display: none;
+}
+#activar-imagen{
     display: none;
 }
 
