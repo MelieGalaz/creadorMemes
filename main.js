@@ -61,3 +61,12 @@ function cargarFoto() {
     imagenContainer.innerHTML = ''; 
     imagenContainer.appendChild(imagen);
     }
+document.addEventListener('DOMContentLoaded', function () {
+        const fileInput = document.getElementById('cargarImagen');
+        const customFileUpload = document.getElementById('customFileUpload');
+
+        fileInput.addEventListener('change', function () {
+            const fileName = fileInput.files[0]?.name || 'Ningún archivo seleccionado';
+            customFileUpload.textContent = fileName;
+        });
+    });

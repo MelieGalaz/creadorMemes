@@ -33,7 +33,7 @@
                 <div class="imagenInterna contenedor_imagen"></div>
                 <h2 class="texto-meme">Texto inferior</h2>
             </div>
-            <button>Descargar meme</button>
+            <button class="descargar-meme">Descargar meme</button>
         </div>
 
         <aside id="panel">
@@ -44,9 +44,10 @@
                 <div class="contenedor-carga-fotos">
                     <label for="cargarImagen">Cargar Imagen:</label>
                     <input type="file" id="cargarImagen" accept="imagen/png, imagen/gif, imagen/jpg">
+                    <label for="cargarImagen" class="custom-file-upload" id="customFileUpload">Seleccionar Archivo</label>
 
                     <label for="urlInput">URL de la Foto:</label>
-                    <input type="text" id="urlInput" oninput="cargarFoto()" required>
+                    <input class="url-imagen" type="text" id="urlInput" oninput="cargarFoto()" required>
                 </div>
                 <div>
                     <h3>FONDO</h3>
