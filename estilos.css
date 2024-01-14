@@ -120,7 +120,7 @@ main {
     justify-content: center;
     width: 85%;
     height: 100%;
-    overflow: hidden; 
+    overflow: hidden;
     border: 1px solid rgb(238, 208, 208);
 }
 
@@ -144,10 +144,11 @@ main {
     padding: 4px 4px;
 
 }
-.descargar-meme{
+
+.descargar-meme {
     height: 35px;
     width: 160px;
-    font-size:1em ;
+    font-size: 1em;
     color: #000000;
     border: none;
     border-radius: 8px;
@@ -184,7 +185,8 @@ main {
     text-shadow: 2px 2px 9px #9a9696;
 
 }
-.modo-oscuro .descargar-meme{
+
+.modo-oscuro .descargar-meme {
     color: white;
     background-color: #4e4f50;
     border: 1px solid #f4f0e8;
@@ -202,10 +204,11 @@ aside {
     padding: 20px;
 }
 
-#activar-texto{
+#activar-texto {
     display: none;
 }
-#activar-imagen{
+
+#activar-imagen {
     display: none;
 }
 
@@ -214,7 +217,6 @@ aside {
     font-size: 1.2em;
     text-align: right;
     display: block;
-    padding: 5px 7px;
 }
 
 .modo-oscuro aside {
@@ -249,9 +251,15 @@ aside {
 label {
     display: block;
 }
+
 input:focus {
     outline: none;
 }
+
+select:focus {
+    outline: none;
+}
+
 input[type="file"] {
     width: 0.1px;
     height: 0.1px;
@@ -260,15 +268,79 @@ input[type="file"] {
     position: absolute;
     z-index: -1;
 }
-.custom-file-upload, .url-imagen {
-    width: 200px;
+
+.custom-file-upload,
+.url-imagen {
+    width: 293px;
     height: 25px;
     text-align: center;
-    background-color:white;
+    background-color: #8caef7;
     color: black;
     border: none;
-    
+    margin: 5px 0px;
 }
 
+h3 {
+    font-size: 1.1em;
+    margin: 5px 0px;
+}
 
+.contenedor-fondo-foto {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 
+.contenedor-color-fondo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px;
+    width: 140px;
+    background-color: #8caef7;
+}
+
+.fondo-color-imagen {
+    border-radius: 50%;
+    line-height: 50px;
+    width: 30px;
+}
+
+.color-fondo-imagen {
+    margin: 0;
+}
+
+#selec-fondo {
+    width: 140px;
+    height: 35px;
+    background-color: #8caef7;
+    border: none;
+}
+
+input[type="range"] {
+    width: 293px;
+    height:8px;
+    border-radius: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color:#8caef7 ;
+
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #404af4;
+    border-radius: 50%;
+    border: 1px solid rgb(109, 107, 107);
+}
+.reestablecer-filtros{
+    background-color: #4147b0;
+    border: none;
+    border-radius: 20px;
+    width: 180px;
+    padding: 5px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}

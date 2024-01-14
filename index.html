@@ -52,8 +52,11 @@
                 <div>
                     <h3>FONDO</h3>
                     <div class="contenedor-fondo-foto">
-                        <input type="color">
-                        <select name="" id="">
+                        <div class="contenedor-color-fondo">
+                        <input class="fondo-color-imagen" type="color">
+                        <p class="color-fondo-imagen">#ffffff</p>
+                        </div>
+                        <select name="" id="selec-fondo">
                             <option value="unset">Ninguno</option>
                             <option value="multiply">Multiplicar</option>
                             <option value="linhten">Aclarar</option>
@@ -83,7 +86,7 @@
                         <label for="negativo">Negativo</label>
                         <input type="range" id="negativo" min="0" max="1" value="0" step="0.1">
                     </div>
-                    <button>REESTABLECER FILTROS</button>
+                    <button class="reestablecer-filtros">REESTABLECER FILTROS</button>
                 </div>
 
             </section>
