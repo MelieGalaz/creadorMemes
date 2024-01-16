@@ -44,7 +44,8 @@
                 <div class="contenedor-carga-fotos">
                     <label for="cargarImagen">Cargar Imagen:</label>
                     <input type="file" id="cargarImagen" accept="imagen/png, imagen/gif, imagen/jpg">
-                    <label for="cargarImagen" class="custom-file-upload" id="customFileUpload">Seleccionar Archivo</label>
+                    <label for="cargarImagen" class="custom-file-upload" id="customFileUpload">Seleccionar
+                        Archivo</label>
 
                     <label for="urlInput">URL de la Foto:</label>
                     <input class="url-imagen" type="text" id="urlInput" oninput="cargarFoto()" required>
@@ -53,8 +54,8 @@
                     <h3>FONDO</h3>
                     <div class="contenedor-fondo-foto">
                         <div class="contenedor-color-fondo">
-                        <input class="fondo-color-imagen" type="color">
-                        <p class="color-fondo-imagen">#ffffff</p>
+                            <input class="fondo-color-imagen" type="color">
+                            <p class="color-fondo-imagen">#ffffff</p>
                         </div>
                         <select name="" id="selec-fondo">
                             <option value="unset">Ninguno</option>
@@ -94,22 +95,25 @@
                 <input type="checkbox" name="" id="activar-texto" onclick="ocultarPanel()">
                 <label for="activar-texto"><i class="fa-solid fa-xmark cruz-panel"></i></label>
                 <h2>TEXTO</h2>
-                <div>
-                    <h3>SUPERIOR</h3>
+                <h3>SUPERIOR</h3>
+                <div class="contenedor-tex-superior">
                     <textarea name="" id="tex-superior">Texto superior</textarea>
-                    <input type="checkbox" id="sin-tex-superior">
-                    <label for="sin-tex-superior">Sin texto superior</label>
+                    <div class="sin-texto">
+                        <input type="checkbox" id="sin-tex-superior">
+                        <label for="sin-tex-superior">Sin texto superior</label>
+                    </div>
                 </div>
-                <div>
-                    <h3>INFERIOR</h3>
+                <h3>INFERIOR</h3>
+                <div class="contenedor-tex-inferior">
                     <textarea name="" id="tex-inferior">texto inferior</textarea>
-                    <input type="checkbox" id="sin-tex-inferior">
-                    <label for="sin-tex-inferior">Sin texto inferior</label>
+                    <div class="sin-texto">
+                        <input type="checkbox" id="sin-tex-inferior">
+                        <label for="sin-tex-inferior">Sin texto inferior</label>
+                    </div>
                 </div>
-                <div>
+                <div class="contenedor-tex-posicion">
                     <h3>FUENTE</h3>
                     <select name="tex-familia" id="familia-fuentes">
-                        <p>Arial</p>
                         <option value="Arial">Arial</option>
                         <option value="Arial-Black">Arial Black</option>
                         <option value="American-Typewriter">American Typewriter</option>
@@ -137,25 +141,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="contenedor-color-tex">
-                    <h3>COLOR</h3>
-                    <div class="color-texto">
-                        <input type="color" class="color-letra">
-                        <p>#000000</p>
+                <div class="contenedor-color-fondo-tex">
+                    <div class="contenedor-color-tex">
+                        <h3>COLOR</h3>
+                        <div class="color-texto">
+                            <input type="color" class="color-letra">
+                            <p>#000000</p>
+                        </div>
                     </div>
-                    <h3>FONFO</h3>
-                    <div class="color-tex-fondo">
-                        <input type="color" class="color-fondo">
-                        <p>#ffffff</p>
+                    <div class="contenedor-color-tex">
+                        <h3>FONDO</h3>
+                        <div class="color-texto">
+                            <input type="color" class="color-fondo">
+                            <p>#ffffff</p>
+                        </div>
                     </div>
-                    <input type="checkbox" id="fondo-transparente">
-                    <label for="fondo-transparente">Fondo transparente</label>
+                </div>
+                <div class="sin-texto">
+                <input type="checkbox" id="fondo-transparente">
+                <label for="fondo-transparente">Fondo transparente</label>
                 </div>
                 <h3>CONTORNO</h3>
                 <div class="contorno">
-                    <button>Ninguno</button>
-                    <button>Claro</button>
-                    <button>Oscuro</button>
+                    <button class="boton-contorno">Ninguno</button>
+                    <button class="boton-contorno">Claro</button>
+                    <button class="boton-contorno">Oscuro</button>
                 </div>
                 <div class="espaciado">
                     <h3>ESPACIADO</h3>
