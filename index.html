@@ -43,7 +43,8 @@
                 <h2>IMAGEN</h2>
                 <div class="contenedor-carga-fotos">
                     <label for="cargarImagen">Cargar Imagen:</label>
-                    <input type="file" id="cargarImagen" accept="imagen/png, imagen/gif, imagen/jpg">
+                    <input type="file" id="cargarImagen" accept="imagen/png, imagen/gif, imagen/jpg"
+                        onchange="cargarFotoInterna()">
                     <label for="cargarImagen" class="custom-file-upload" id="customFileUpload">Seleccionar
                         Archivo</label>
 
@@ -54,8 +55,8 @@
                     <h3>FONDO</h3>
                     <div class="contenedor-fondo-foto">
                         <div class="contenedor-color-fondo">
-                            <input class="fondo-color-imagen" type="color">
-                            <p class="color-fondo-imagen">#ffffff</p>
+                            <input class="fondoColorImagen" value="#FFFFFF" type="color" oninput="colorFondoFoto(event)">
+                            <output id="colorFondo">#FFFFFF</output>
                         </div>
                         <select name="" id="selec-fondo">
                             <option value="unset">Ninguno</option>
@@ -158,8 +159,8 @@
                     </div>
                 </div>
                 <div class="sin-texto">
-                <input type="checkbox" id="fondo-transparente">
-                <label for="fondo-transparente">Fondo transparente</label>
+                    <input type="checkbox" id="fondo-transparente">
+                    <label for="fondo-transparente">Fondo transparente</label>
                 </div>
                 <h3>CONTORNO</h3>
                 <div class="contorno">

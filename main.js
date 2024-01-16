@@ -5,6 +5,9 @@ const sectionTexto = document.querySelector(".sec-texto");
 const panelAside = document.querySelector("#panel");
 const divImagen = document.querySelector(".contenedorImagen")
 const cargarImagen = document.getElementById("cargarImagen")
+const imagen = document.querySelector('.contenedor-imagen');
+const imagenContainer = document.querySelector('.imagenInterna');
+const fileInput = document.getElementById('cargarImagen');
 
 
 /********************modo oscuro************************ */
@@ -46,22 +49,24 @@ document.querySelector(".texto").addEventListener("click", (e) => {
 })
 
 /************************cargar fotos desde la url**************** */
+function cargarFotoInterna() {
+    const fileInput = document.getElementById('cargarImagen');
+    const imagenContainer = document.querySelector('.imagenInterna');
 
-cargarImagen.addEventListener("change", (e) => {
-    const file = e.target.files[0];
+    const file = fileInput.files[0];
+
     if (file) {
         const reader = new FileReader();
         reader.onload = (e) => {
-            const imgElement = document.createElement("img");
+            const imgElement = document.createElement('img');
             imgElement.src = e.target.result;
+
             imagenContainer.innerHTML = '';
-            const divImagen = document.querySelector(".imagenInterna");
-            divImagen.appendChild(imgElement);
+            imagenContainer.appendChild(imgElement);
         };
         reader.readAsDataURL(file);
     }
-});
-
+}
 
 
 /**************************cargar foto desde compu******************** */
@@ -72,19 +77,29 @@ function cargarFoto() {
     const imagen = document.createElement('img');
     imagen.src = urlInput;
 
-    imagenContainer.innerHTML = ''; 
+    imagenContainer.innerHTML = '';
     imagenContainer.appendChild(imagen);
-    }
+}
 
 
 
 /************elimina texto de imagen por defecto de la carga de compu*********** */
 document.addEventListener('DOMContentLoaded', function () {
-        const fileInput = document.getElementById('cargarImagen');
-        const customFileUpload = document.getElementById('customFileUpload');
+    const fileInput = document.getElementById('cargarImagen');
+    const customFileUpload = document.getElementById('customFileUpload');
 
-        fileInput.addEventListener('change', function () {
-            const fileName = fileInput.files[0]?.name || 'Ningún archivo seleccionado';
-            customFileUpload.textContent = fileName;
-        });
+    fileInput.addEventListener('change', function () {
+        const fileName = fileInput.files[0] ?.name || 'Ningún archivo seleccionado';
+        customFileUpload.textContent = fileName;
     });
+});
+
+/***********************funcion para fondo foto********* */
+
+const colorFondoFoto = (e) => {
+    document.getElementById('colorFondo').innerHTML = e.target.value.toUpperCase();
+    document.querySelector('.imagenInterna').style.backgroundColor = e.target.value;
+};
+
+/*********************mezcla con los colores blendMode*************** */
+
