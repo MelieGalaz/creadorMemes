@@ -1,3 +1,4 @@
+
 const modoOscuroBtn = document.getElementById('modoOscuroBtn');
 const body = document.body;
 const sectionImagen = document.querySelector(".sec-imagen");
@@ -6,9 +7,9 @@ const panelAside = document.querySelector("#panel");
 const divImagen = document.querySelector(".contenedorImagen")
 const cargarImagen = document.getElementById("cargarImagen")
 const imagen = document.querySelector('.contenedor-imagen');
-const imagenContainer = document.querySelector('.imagenInterna');
+const imagenInterna = document.querySelector('.imagenInterna');
 const fileInput = document.getElementById('cargarImagen');
-
+const selectFondo = document.getElementById('selec-fondo');
 
 /********************modo oscuro************************ */
 modoOscuroBtn.addEventListener('click', () => {
@@ -51,7 +52,7 @@ document.querySelector(".texto").addEventListener("click", (e) => {
 /************************cargar fotos desde la url**************** */
 function cargarFotoInterna() {
     const fileInput = document.getElementById('cargarImagen');
-    const imagenContainer = document.querySelector('.imagenInterna');
+    const imagenInterna = document.querySelector('.imagenInterna');
 
     const file = fileInput.files[0];
 
@@ -61,27 +62,27 @@ function cargarFotoInterna() {
             const imgElement = document.createElement('img');
             imgElement.src = e.target.result;
 
-            imagenContainer.innerHTML = '';
-            imagenContainer.appendChild(imgElement);
+            imagenInterna.innerHTML = '';
+            imagenInterna.appendChild(imgElement);
         };
         reader.readAsDataURL(file);
     }
+
 }
+
 
 
 /**************************cargar foto desde compu******************** */
 function cargarFoto() {
     const urlInput = document.getElementById('urlInput').value;
-    const imagenContainer = document.querySelector('.imagenInterna');
+    const imagenInterna = document.querySelector('.imagenInterna');
 
     const imagen = document.createElement('img');
     imagen.src = urlInput;
 
-    imagenContainer.innerHTML = '';
-    imagenContainer.appendChild(imagen);
+    imagenInterna.innerHTML = '';
+    imagenInterna.appendChild(imagen);
 }
-
-
 
 /************elimina texto de imagen por defecto de la carga de compu*********** */
 document.addEventListener('DOMContentLoaded', function () {
@@ -97,9 +98,18 @@ document.addEventListener('DOMContentLoaded', function () {
 /***********************funcion para fondo foto********* */
 
 const colorFondoFoto = (e) => {
+    
     document.getElementById('colorFondo').innerHTML = e.target.value.toUpperCase();
     document.querySelector('.imagenInterna').style.backgroundColor = e.target.value;
-};
+    
 
+};
 /*********************mezcla con los colores blendMode*************** */
 
+document.getElementById("selec-fondo").onchange = () => {
+    const selectedValue = document.getElementById("selec-fondo").value;
+    document.querySelector(".imagenInterna").style.mixBlendMode = selectedValue;
+    console.log(selectedValue);
+}; 
+
+/***********************  */

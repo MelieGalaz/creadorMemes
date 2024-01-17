@@ -30,7 +30,7 @@
         <div class="contenedor-padre">
             <div class="contenedor">
                 <h2 class="texto-meme">Texto superior</h2>
-                <div class="imagenInterna contenedor_imagen"></div>
+                <div class="imagenInterna contenedor_imagen" id="imagenFondo"></div>
                 <h2 class="texto-meme">Texto inferior</h2>
             </div>
             <button class="descargar-meme">Descargar meme</button>
@@ -55,16 +55,19 @@
                     <h3>FONDO</h3>
                     <div class="contenedor-fondo-foto">
                         <div class="contenedor-color-fondo">
-                            <input class="fondoColorImagen" value="#FFFFFF" type="color" oninput="colorFondoFoto(event)">
+                            <input class="fondoColorImagen" value="#FFFFFF" type="color"
+                                oninput="colorFondoFoto(event)">
                             <output id="colorFondo">#FFFFFF</output>
                         </div>
                         <select name="" id="selec-fondo">
                             <option value="unset">Ninguno</option>
                             <option value="multiply">Multiplicar</option>
-                            <option value="linhten">Aclarar</option>
+                            <option value="lighten">Aclarar</option>
                             <option value="darken">Oscurecer</option>
+                            <option value="plus-darker">Más Oscuro</option>
                             <option value="difference">Diferencia</option>
-                            <option value="luminosity">luminosidad</option>
+                            <option value="luminosity">Luminosidad</option>
+                            <option value="saturation">Saturación</option>
                         </select>
                     </div>
                     <div class="contenedor-filtos-imagen">
