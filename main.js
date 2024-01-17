@@ -1,4 +1,3 @@
-
 const modoOscuroBtn = document.getElementById('modoOscuroBtn');
 const body = document.body;
 const sectionImagen = document.querySelector(".sec-imagen");
@@ -49,6 +48,10 @@ document.querySelector(".texto").addEventListener("click", (e) => {
     e.preventDefault();
 })
 
+
+/*///////////////////////////PANEL IMAGEN/////////////////////////*/
+
+
 /************************cargar fotos desde la url**************** */
 function cargarFotoInterna() {
     const fileInput = document.getElementById('cargarImagen');
@@ -98,18 +101,113 @@ document.addEventListener('DOMContentLoaded', function () {
 /***********************funcion para fondo foto********* */
 
 const colorFondoFoto = (e) => {
-    
+
     document.getElementById('colorFondo').innerHTML = e.target.value.toUpperCase();
     document.querySelector('.imagenInterna').style.backgroundColor = e.target.value;
-    
+
 
 };
+
 /*********************mezcla con los colores blendMode*************** */
 
 document.getElementById("selec-fondo").onchange = () => {
     const selectedValue = document.getElementById("selec-fondo").value;
-    document.querySelector(".imagenInterna").style.mixBlendMode = selectedValue;
+    document.querySelector("img").style.mixBlendMode = selectedValue;
     console.log(selectedValue);
-}; 
+};
 
-/***********************  */
+
+/*********************filtros ********************************** */
+let brilloValue = 1;
+let opacidadValue = 1;
+let contrasteValue = 100;
+let desenfoqueValue = 0;
+let escalaGrisesValue = 0;
+let sepiaValue = 0;
+let hueValue = 0;
+let saturadoValue = 100;
+let negativoValue = 0;
+
+function aplicarFiltros() {
+    const imagen = document.querySelector('.imagenInterna img');
+
+    if (imagen) {
+        imagen.style.filter = `
+            brightness(${brilloValue})
+            opacity(${opacidadValue})
+            contrast(${contrasteValue}%)
+            blur(${desenfoqueValue}px)
+            grayscale(${escalaGrisesValue}%)
+            sepia(${sepiaValue})
+            hue-rotate(${hueValue}deg)
+            saturate(${saturadoValue}%)
+            invert(${negativoValue})
+        `;
+    }
+}
+
+/***** Función para restablecer filtros*****/
+function restablecerFiltros() {
+    brilloValue = 1;
+    opacidadValue = 1;
+    contrasteValue = 100;
+    desenfoqueValue = 0;
+    escalaGrisesValue = 0;
+    sepiaValue = 0;
+    hueValue = 0;
+    saturadoValue = 100;
+    negativoValue = 0;
+
+    aplicarFiltros();
+}
+
+/****** Agregar eventos a los controles de filtros*********/
+document.getElementById('brillo').addEventListener('input', (e) => {
+    brilloValue = e.target.value;
+    aplicarFiltros();
+});
+
+document.getElementById('opacidad').addEventListener('input', (e) => {
+    opacidadValue = e.target.value;
+    aplicarFiltros();
+});
+
+document.getElementById('contraste').addEventListener('input', (e) => {
+    contrasteValue = e.target.value;
+    aplicarFiltros();
+});
+
+document.getElementById('desenfoque').addEventListener('input', (e) => {
+    desenfoqueValue = e.target.value;
+    aplicarFiltros();
+});
+
+document.getElementById('escala-grises').addEventListener('input', (e) => {
+    escalaGrisesValue = e.target.value;
+    aplicarFiltros();
+});
+
+document.getElementById('sepia').addEventListener('input', (e) => {
+    sepiaValue = e.target.value;
+    aplicarFiltros();
+});
+
+document.getElementById('hue').addEventListener('input', (e) => {
+    hueValue = e.target.value;
+    aplicarFiltros();
+});
+
+document.getElementById('saturado').addEventListener('input', (e) => {
+    saturadoValue = e.target.value;
+    aplicarFiltros();
+});
+
+document.getElementById('negativo').addEventListener('input', (e) => {
+    negativoValue = e.target.value;
+    aplicarFiltros();
+});
+
+/*************** Botón para restablecer filtros ****************/
+document.querySelector('.reestablecer-filtros').addEventListener('click', () => {
+    restablecerFiltros();
+});
