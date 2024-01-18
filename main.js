@@ -211,3 +211,80 @@ document.getElementById('negativo').addEventListener('input', (e) => {
 document.querySelector('.reestablecer-filtros').addEventListener('click', () => {
     restablecerFiltros();
 });
+
+
+/*/////////////////////////PANEL  TEXTO////////////////////////// */
+
+
+const texSuperiorInput = document.getElementById('tex-superior');
+const sinTexSuperiorCheckbox = document.getElementById('sin-tex-superior');
+const textoMemeSuperior = document.querySelector('.texto-meme');
+const labelTexSuperior = document.querySelector('label[for="tex-superior"]');
+const textareaTexSuperior = document.getElementById('tex-superior');
+
+const texInferiorInput = document.getElementById('tex-inferior');
+const sinTexInferiorCheckbox = document.getElementById('sin-tex-inferior');
+const textoMemeInferior = document.querySelectorAll('.texto-meme')[1]; 
+const labelTexInferior = document.querySelector('label[for="tex-inferior"]');
+const textareaTexInferior = document.getElementById('tex-inferior');
+
+/*******  Almacenar los textos predeterminados al cargar la página ***********/
+const textoPredeterminadoSuperior = textoMemeSuperior.textContent;
+const textoPredeterminadoInferior = textoMemeInferior.textContent;
+
+/******* Función para cambiar el texto superior, el label y el textarea  *******/
+function cambiarTextoSuperior() {
+    const nuevoTexto = texSuperiorInput.value || textoPredeterminadoSuperior;
+
+    if (sinTexSuperiorCheckbox.checked) {
+        textoMemeSuperior.textContent = '';
+        textoMemeSuperior.style.visibility = 'hidden';
+    } else {
+        textoMemeSuperior.textContent = nuevoTexto;
+        textoMemeSuperior.style.visibility = 'visible';
+    }
+
+    /****** Actualizar el label *****/
+    labelTexSuperior.textContent = nuevoTexto || "Texto superior";
+
+    /****** Actualizar el valor del textarea *******/
+    textareaTexSuperior.value = nuevoTexto || "";
+}
+
+/*******Función para cambiar el texto inferior, el label y el textarea ******/
+function cambiarTextoInferior() {
+    const nuevoTexto = texInferiorInput.value || textoPredeterminadoInferior;
+
+    if (sinTexInferiorCheckbox.checked) {
+        textoMemeInferior.textContent = '';
+        textoMemeInferior.style.visibility = 'hidden';
+    } else {
+        textoMemeInferior.textContent = nuevoTexto;
+        textoMemeInferior.style.visibility = 'visible';
+    }
+
+    /******  Actualizar el label *******/
+    labelTexInferior.textContent = nuevoTexto || "Texto inferior";
+
+    /******* Actualizar el valor del textarea *******/
+    textareaTexInferior.value = nuevoTexto || "";
+}
+
+/********Manejar cambios en el input y el checkbox de texto superior*****/
+texSuperiorInput.addEventListener('input', cambiarTextoSuperior);
+sinTexSuperiorCheckbox.addEventListener('change', cambiarTextoSuperior);
+
+/******* Manejar cambios en el input y el checkbox de texto inferior ******/
+texInferiorInput.addEventListener('input', cambiarTextoInferior);
+sinTexInferiorCheckbox.addEventListener('change', cambiarTextoInferior);
+
+/********Inicializar el label y el textarea con los textos predeterminados******/
+labelTexSuperior.textContent = textoPredeterminadoSuperior || "Texto superior";
+textareaTexSuperior.value = textoPredeterminadoSuperior || "";
+
+labelTexInferior.textContent = textoPredeterminadoInferior || "Texto inferior";
+textareaTexInferior.value = textoPredeterminadoInferior || "";
+
+
+
+
