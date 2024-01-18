@@ -308,6 +308,13 @@ textoIzquierdaBtn.addEventListener('click', () => {
     cambiarPosicionTexto(contenedorTextoInferior, 'right');
 });
 
+/*+++++++++++++++++++++++++ color de la letra texto ++++++++++++++++++++*/
 
+
+const colorletraMeme = (e) => {
+    document.getElementById('colorTexto').innerHTML = e.target.value.toUpperCase();
+    document.querySelector('.texto-meme:nth-of-type(1) ').style.color = e.target.value;
+    document.querySelector('.texto-meme:nth-of-type(2) ').style.color = e.target.value;
+};
 
 
