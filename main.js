@@ -10,7 +10,7 @@ const imagenInterna = document.querySelector('.imagenInterna');
 const fileInput = document.getElementById('cargarImagen');
 const selectFondo = document.getElementById('selec-fondo');
 
-/********************modo oscuro************************ */
+/*+++++++++++++++++++++++modo oscuro++++++++++++++++++++++++++++*/
 modoOscuroBtn.addEventListener('click', () => {
     body.classList.toggle('modo-oscuro');
 
@@ -23,7 +23,7 @@ modoOscuroBtn.addEventListener('click', () => {
 
 
 
-/********************mostar paneles desde menu************** */
+/*++++++++++++++++++++++mostar paneles desde menu+++++++++++++++++++++++*/
 function mostrarPanel() {
     document.getElementById("panel").style.display = "block";
 }
@@ -51,6 +51,7 @@ document.querySelector(".texto").addEventListener("click", (e) => {
 
 /*///////////////////////////PANEL IMAGEN/////////////////////////*/
 
+/*+++++++++++++++++++++++cargar fotos+++++++++++++++++++++++++*/
 
 /************************cargar fotos desde la url**************** */
 function cargarFotoInterna() {
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-/***********************funcion para fondo foto********* */
+/*++++++++++++++++++++++++funcion para fondo foto++++++++++++++++++++++++*/
 
 const colorFondoFoto = (e) => {
 
@@ -108,16 +109,16 @@ const colorFondoFoto = (e) => {
 
 };
 
-/*********************mezcla con los colores blendMode*************** */
+/*++++++++++++++++++++++++mezcla con los colores blendMode+++++++++++++++++++*/
 
 document.getElementById("selec-fondo").onchange = () => {
     const selectedValue = document.getElementById("selec-fondo").value;
-    document.querySelector("img").style.mixBlendMode = selectedValue;
+    document.querySelector(".imagenInterna img").style.mixBlendMode = selectedValue;
     console.log(selectedValue);
 };
 
 
-/*********************filtros ********************************** */
+/*++++++++++++++++++++++++++filtros+++++++++++++++++++++++++++++++*/
 let brilloValue = 1;
 let opacidadValue = 1;
 let contrasteValue = 100;
@@ -215,75 +216,97 @@ document.querySelector('.reestablecer-filtros').addEventListener('click', () => 
 
 /*/////////////////////////PANEL  TEXTO////////////////////////// */
 
+/*+++++++++++++++++++++++++++ cambiar texto superior e inferior+++++++++++++++++*/
+const textoSuperiorInput = document.getElementById('tex-superior');
+const textoInferiorInput = document.getElementById('tex-inferior');
+const sinTextoSuperiorCheckbox = document.getElementById('sin-tex-superior');
+const sinTextoInferiorCheckbox = document.getElementById('sin-tex-inferior');
+const contenedorTextoSuperior = document.querySelector('.texto-meme:nth-of-type(1)');
+const contenedorTextoInferior = document.querySelector('.texto-meme:nth-of-type(2)');
 
-const texSuperiorInput = document.getElementById('tex-superior');
-const sinTexSuperiorCheckbox = document.getElementById('sin-tex-superior');
-const textoMemeSuperior = document.querySelector('.texto-meme');
-const labelTexSuperior = document.querySelector('label[for="tex-superior"]');
-const textareaTexSuperior = document.getElementById('tex-superior');
+/*************Función para actualizar textos*********************/
+function actualizarTextos() {
+    const textoSuperior = textoSuperiorInput.value.trim();
+    contenedorTextoSuperior.textContent = (sinTextoSuperiorCheckbox.checked || textoSuperior === '') ? '' : textoSuperior;
 
-const texInferiorInput = document.getElementById('tex-inferior');
-const sinTexInferiorCheckbox = document.getElementById('sin-tex-inferior');
-const textoMemeInferior = document.querySelectorAll('.texto-meme')[1]; 
-const labelTexInferior = document.querySelector('label[for="tex-inferior"]');
-const textareaTexInferior = document.getElementById('tex-inferior');
+    const textoInferior = textoInferiorInput.value.trim();
+    contenedorTextoInferior.textContent = (sinTextoInferiorCheckbox.checked || textoInferior === '') ? '' : textoInferior;
 
-/*******  Almacenar los textos predeterminados al cargar la página ***********/
-const textoPredeterminadoSuperior = textoMemeSuperior.textContent;
-const textoPredeterminadoInferior = textoMemeInferior.textContent;
-
-/******* Función para cambiar el texto superior, el label y el textarea  *******/
-function cambiarTextoSuperior() {
-    const nuevoTexto = texSuperiorInput.value || textoPredeterminadoSuperior;
-
-    if (sinTexSuperiorCheckbox.checked) {
-        textoMemeSuperior.textContent = '';
-        textoMemeSuperior.style.visibility = 'hidden';
-    } else {
-        textoMemeSuperior.textContent = nuevoTexto;
-        textoMemeSuperior.style.visibility = 'visible';
+    
+    if (textoSuperior === '') {
+        contenedorTextoSuperior.textContent = 'Texto superior';
     }
 
-    /****** Actualizar el label *****/
-    labelTexSuperior.textContent = nuevoTexto || "Texto superior";
-
-    /****** Actualizar el valor del textarea *******/
-    textareaTexSuperior.value = nuevoTexto || "";
-}
-
-/*******Función para cambiar el texto inferior, el label y el textarea ******/
-function cambiarTextoInferior() {
-    const nuevoTexto = texInferiorInput.value || textoPredeterminadoInferior;
-
-    if (sinTexInferiorCheckbox.checked) {
-        textoMemeInferior.textContent = '';
-        textoMemeInferior.style.visibility = 'hidden';
-    } else {
-        textoMemeInferior.textContent = nuevoTexto;
-        textoMemeInferior.style.visibility = 'visible';
+    if (textoInferior === '') {
+        contenedorTextoInferior.textContent = 'Texto inferior';
     }
+}
+textoSuperiorInput.addEventListener('input', actualizarTextos);
+textoInferiorInput.addEventListener('input', actualizarTextos);
+sinTextoSuperiorCheckbox.addEventListener('change', actualizarTextos);
+sinTextoInferiorCheckbox.addEventListener('change', actualizarTextos);
 
-    /******  Actualizar el label *******/
-    labelTexInferior.textContent = nuevoTexto || "Texto inferior";
+actualizarTextos();
 
-    /******* Actualizar el valor del textarea *******/
-    textareaTexInferior.value = nuevoTexto || "";
+
+/*+++++++++++++++++++++++++++++++++ familia de fuentes++++++++++++++++++++++++*/
+const familiaFuentesSelect = document.getElementById('familia-fuentes');
+
+/******************cambiar la fuente del texto **************/ 
+function cambiarFuenteTexto() {
+    /***Obtener el valor seleccionado en el <select>***** */ 
+    const nuevaFuente = familiaFuentesSelect.value;
+
+    /*** fuente al texto superior********* */
+    contenedorTextoSuperior.style.fontFamily = nuevaFuente;
+
+    /****** fuente al texto inferior****/
+    contenedorTextoInferior.style.fontFamily = nuevaFuente;
 }
 
-/********Manejar cambios en el input y el checkbox de texto superior*****/
-texSuperiorInput.addEventListener('input', cambiarTextoSuperior);
-sinTexSuperiorCheckbox.addEventListener('change', cambiarTextoSuperior);
+/*** evento al <select> para llamar a la función****/
+familiaFuentesSelect.addEventListener('change', cambiarFuenteTexto);
 
-/******* Manejar cambios en el input y el checkbox de texto inferior ******/
-texInferiorInput.addEventListener('input', cambiarTextoInferior);
-sinTexInferiorCheckbox.addEventListener('change', cambiarTextoInferior);
+cambiarFuenteTexto();
 
-/********Inicializar el label y el textarea con los textos predeterminados******/
-labelTexSuperior.textContent = textoPredeterminadoSuperior || "Texto superior";
-textareaTexSuperior.value = textoPredeterminadoSuperior || "";
+/*++++++++++++++++++++++++++++cambiar tamaño fuente+++++++++++++++++++++++*/
+const inputTamañoTexto = document.getElementById('texto-tamaño');
 
-labelTexInferior.textContent = textoPredeterminadoInferior || "Texto inferior";
-textareaTexInferior.value = textoPredeterminadoInferior || "";
+function cambiarTamañoTexto() {
+    const nuevoTamaño = inputTamañoTexto.value + 'px';
+    contenedorTextoSuperior.style.fontSize = nuevoTamaño;
+    contenedorTextoInferior.style.fontSize = nuevoTamaño;
+}
+
+/***evento al <input> para llamar a la función******/ 
+inputTamañoTexto.addEventListener('input', cambiarTamañoTexto);
+
+cambiarTamañoTexto();
+
+/*+++++++++++++++++++++++++++ cambiar posicion del texto++++++++++++++++++*/
+
+const textoDerechaBtn = document.getElementById('texto-derecha');
+const textoCentroBtn = document.getElementById('texto-centro');
+const textoIzquierdaBtn = document.getElementById('texto-izquierda');
+
+function cambiarPosicionTexto(elemento, posicion) {
+    elemento.style.textAlign = posicion;
+}
+
+textoDerechaBtn.addEventListener('click', () => {
+    cambiarPosicionTexto(contenedorTextoSuperior, 'left');
+    cambiarPosicionTexto(contenedorTextoInferior, 'left');
+});
+
+textoCentroBtn.addEventListener('click', () => {
+    cambiarPosicionTexto(contenedorTextoSuperior, 'center');
+    cambiarPosicionTexto(contenedorTextoInferior, 'center');
+});
+
+textoIzquierdaBtn.addEventListener('click', () => {
+    cambiarPosicionTexto(contenedorTextoSuperior, 'right');
+    cambiarPosicionTexto(contenedorTextoInferior, 'right');
+});
 
 
 

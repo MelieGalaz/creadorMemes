@@ -29,9 +29,9 @@
     <main>
         <div class="contenedor-padre">
             <div class="contenedor">
-                <h2 class="texto-meme" >Texto superior</h2>
+                <h2 class="texto-meme">Texto superior</h2>
                 <div class="imagenInterna contenedor_imagen" id="imagenFondo"></div>
-                <h2 class="texto-meme"  >Texto inferior</h2>
+                <h2 class="texto-meme">Texto inferior</h2>
             </div>
             <button class="descargar-meme">Descargar meme</button>
         </div>
@@ -109,7 +109,7 @@
                 </div>
                 <h3>INFERIOR</h3>
                 <div class="contenedor-tex-inferior">
-                    <textarea name="" id="tex-inferior">texto inferior</textarea>
+                    <textarea name="" id="tex-inferior">Texto inferior</textarea>
                     <div class="sin-texto">
                         <input type="checkbox" id="sin-tex-inferior">
                         <label for="sin-tex-inferior">Sin texto inferior</label>
@@ -130,36 +130,39 @@
                     </select>
                     <div class="tamaño-posicion-tex">
                         <div>
-                            <input type="number" name="tamaño-tex" id="texto-tamaño" min="10" value="50">
+                            <input type="number" name="tamaño-tex" id="texto-tamaño" min="10" value="25">
                         </div>
                         <div class="tex-posicion">
-                            <span class="posicion" id="texto-derecha">
+                            <button class="posicion" id="texto-derecha">
                                 <i class="fa-solid fa-align-left"></i>
-                            </span>
-                            <span class="posicion" id="texto-centro">
+                            </button>
+                            <button class="posicion" id="texto-centro">
                                 <i class="fa-solid fa-align-center"></i>
-                            </span>
-                            <span class="posicion" id="texto-izquierda">
+                            </button>
+                            <button class="posicion" id="texto-izquierda">
                                 <i class="fa-solid fa-align-right"></i>
-                            </span>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="contenedor-color-fondo-tex">
-                    <div class="contenedor-color-tex">
+                    <div class="contenedor-color">
                         <h3>COLOR</h3>
                         <div class="color-texto">
-                            <input type="color" class="color-letra">
-                            <p>#000000</p>
+                            <input type="color" class="color-letra" value="#000000"
+                                oninput="colorTextoFondo.value=value.toUpperCase()">
+                            <output id="colorTextoFondo">#000000</output>
                         </div>
                     </div>
-                    <div class="contenedor-color-tex">
+                    <div class="contenedor-color">
                         <h3>FONDO</h3>
                         <div class="color-texto">
-                            <input type="color" class="color-fondo">
-                            <p>#ffffff</p>
+                            <input type="color" class="color-letra" value="#ffffff"
+                                oninput="textoColor.value=value.toUpperCase()">
+                            <output id="textoColor">#ffffff</output>
                         </div>
                     </div>
+
                 </div>
                 <div class="sin-texto">
                     <input type="checkbox" id="fondo-transparente">

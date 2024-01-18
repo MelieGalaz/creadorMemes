@@ -45,6 +45,7 @@ h2 {
 
 .texto-meme {
     color: #878a8c;
+    width: 300px;
 }
 
 @keyframes animacionGradiente {
@@ -473,6 +474,7 @@ textarea:focus {
     width: 34px;
     height: 34px;
     font-size: 20px;
+    border: none;
 }
 
 .modo-oscuro .posicion{
@@ -491,10 +493,11 @@ textarea:focus {
     align-items: center;
     gap: 10px;
     width: 140px;
+    height: 34px;
     background-color: #8caef7;
     font-size: 0.9em;
-    align-items: center;
 }
+
 
 .modo-oscuro .color-texto{
     background-color: #eeeeee;
