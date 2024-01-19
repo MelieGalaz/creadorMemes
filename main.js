@@ -9,6 +9,21 @@ const imagen = document.querySelector('.contenedor-imagen');
 const imagenInterna = document.querySelector('.imagenInterna');
 const fileInput = document.getElementById('cargarImagen');
 const selectFondo = document.getElementById('selec-fondo');
+const customFileUpload = document.getElementById('customFileUpload');
+const textoSuperiorInput = document.getElementById('tex-superior');
+const textoInferiorInput = document.getElementById('tex-inferior');
+const sinTextoSuperiorCheckbox = document.getElementById('sin-tex-superior');
+const sinTextoInferiorCheckbox = document.getElementById('sin-tex-inferior');
+const contenedorTextoSuperior = document.querySelector('.texto-meme:nth-of-type(1)');
+const contenedorTextoInferior = document.querySelector('.texto-meme:nth-of-type(2)');
+const familiaFuentesSelect = document.getElementById('familia-fuentes');
+const inputTamañoTexto = document.getElementById('texto-tamaño');
+const textoDerechaBtn = document.getElementById('texto-derecha');
+const textoCentroBtn = document.getElementById('texto-centro');
+const textoIzquierdaBtn = document.getElementById('texto-izquierda');
+const fondoTransparenteCheckbox = document.getElementById('fondo-transparente');
+const textoColorFondo = document.getElementById('textoColorFondo');
+
 
 /*+++++++++++++++++++++++modo oscuro++++++++++++++++++++++++++++*/
 modoOscuroBtn.addEventListener('click', () => {
@@ -55,9 +70,6 @@ document.querySelector(".texto").addEventListener("click", (e) => {
 
 /************************cargar fotos desde la url**************** */
 function cargarFotoInterna() {
-    const fileInput = document.getElementById('cargarImagen');
-    const imagenInterna = document.querySelector('.imagenInterna');
-
     const file = fileInput.files[0];
 
     if (file) {
@@ -79,7 +91,7 @@ function cargarFotoInterna() {
 /**************************cargar foto desde compu******************** */
 function cargarFoto() {
     const urlInput = document.getElementById('urlInput').value;
-    const imagenInterna = document.querySelector('.imagenInterna');
+    
 
     const imagen = document.createElement('img');
     imagen.src = urlInput;
@@ -90,8 +102,6 @@ function cargarFoto() {
 
 /************elimina texto de imagen por defecto de la carga de compu*********** */
 document.addEventListener('DOMContentLoaded', function () {
-    const fileInput = document.getElementById('cargarImagen');
-    const customFileUpload = document.getElementById('customFileUpload');
 
     fileInput.addEventListener('change', function () {
         const fileName = fileInput.files[0] ?.name || 'Ningún archivo seleccionado';
@@ -104,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const colorFondoFoto = (e) => {
 
     document.getElementById('colorFondo').innerHTML = e.target.value.toUpperCase();
-    document.querySelector('.imagenInterna').style.backgroundColor = e.target.value;
+    document.querySelector('.contenedor').style.backgroundColor = e.target.value;
 
 
 };
@@ -217,12 +227,7 @@ document.querySelector('.reestablecer-filtros').addEventListener('click', () => 
 /*/////////////////////////PANEL  TEXTO////////////////////////// */
 
 /*+++++++++++++++++++++++++++ cambiar texto superior e inferior+++++++++++++++++*/
-const textoSuperiorInput = document.getElementById('tex-superior');
-const textoInferiorInput = document.getElementById('tex-inferior');
-const sinTextoSuperiorCheckbox = document.getElementById('sin-tex-superior');
-const sinTextoInferiorCheckbox = document.getElementById('sin-tex-inferior');
-const contenedorTextoSuperior = document.querySelector('.texto-meme:nth-of-type(1)');
-const contenedorTextoInferior = document.querySelector('.texto-meme:nth-of-type(2)');
+
 
 /*************Función para actualizar textos*********************/
 function actualizarTextos() {
@@ -250,7 +255,7 @@ actualizarTextos();
 
 
 /*+++++++++++++++++++++++++++++++++ familia de fuentes++++++++++++++++++++++++*/
-const familiaFuentesSelect = document.getElementById('familia-fuentes');
+
 
 /******************cambiar la fuente del texto **************/ 
 function cambiarFuenteTexto() {
@@ -270,7 +275,7 @@ familiaFuentesSelect.addEventListener('change', cambiarFuenteTexto);
 cambiarFuenteTexto();
 
 /*++++++++++++++++++++++++++++cambiar tamaño fuente+++++++++++++++++++++++*/
-const inputTamañoTexto = document.getElementById('texto-tamaño');
+
 
 function cambiarTamañoTexto() {
     const nuevoTamaño = inputTamañoTexto.value + 'px';
@@ -285,9 +290,7 @@ cambiarTamañoTexto();
 
 /*+++++++++++++++++++++++++++ cambiar posicion del texto++++++++++++++++++*/
 
-const textoDerechaBtn = document.getElementById('texto-derecha');
-const textoCentroBtn = document.getElementById('texto-centro');
-const textoIzquierdaBtn = document.getElementById('texto-izquierda');
+
 
 function cambiarPosicionTexto(elemento, posicion) {
     elemento.style.textAlign = posicion;
@@ -318,3 +321,20 @@ const colorletraMeme = (e) => {
 };
 
 
+/*+++++++++++++++++++++++++ color de fondo al texto +++++++++++++++++++*/
+
+const fondoTextoColor = (e) => {
+    const color = e.target.value;
+    textoColorFondo.innerHTML = color.toUpperCase();
+
+    if (fondoTransparenteCheckbox.checked) {
+        contenedorTextoSuperior .style.backgroundColor = 'transparent';
+        contenedorTextoInferior.style.backgroundColor = 'transparent';
+    } else {
+        contenedorTextoSuperior.style.backgroundColor = color;
+        contenedorTextoInferior.style.backgroundColor = color;
+    }
+};
+
+/*******listener al checkbox para que llame a la función cuando cambie su estado****/
+document.getElementById('fondo-transparente').addEventListener('change', fondoTextoColor);

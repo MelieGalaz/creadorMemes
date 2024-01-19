@@ -15,7 +15,7 @@
 <body>
     <header>
         <nav>
-            <h1>Generador de Memes</h1>
+            <h1 class="tituloConColor">Generador de Memes</h1>
             <div class="contenedor_boton">
                 <button class="boton_nav imagen" onclick="mostrarPanel()"><i
                         class="fa-regular fa-image"></i>imagen</button>
@@ -29,8 +29,10 @@
     <main>
         <div class="contenedor-padre">
             <div class="contenedor">
-                <h2 class="texto-meme">Texto superior</h2>
-                <div class="imagenInterna contenedor_imagen" id="imagenFondo"></div>
+                <h2 class="texto-meme" >Texto superior</h2>
+                <div class="imagenInterna contenedor_imagen" id="imagenFondo">
+                    <img src="imagenes/meme1.jpg" alt="">
+                </div>
                 <h2 class="texto-meme">Texto inferior</h2>
             </div>
             <button class="descargar-meme">Descargar meme</button>
@@ -40,7 +42,7 @@
             <section class="sec-imagen contenedor-menus">
                 <input type="checkbox" id="activar-imagen" name="" onclick="ocultarPanel()">
                 <label for="activar-imagen"><i class="fa-solid fa-xmark cruz-panel"></i></label>
-                <h2>IMAGEN</h2>
+                <h2 class=" tituloPanel">IMAGEN</h2>
                 <div class="contenedor-carga-fotos">
                     <label for="cargarImagen">Cargar Imagen:</label>
                     <input type="file" id="cargarImagen" accept="imagen/png, imagen/gif, imagen/jpg"
@@ -98,10 +100,10 @@
             <section class="sec-texto contenedor-menus">
                 <input type="checkbox" name="" id="activar-texto" onclick="ocultarPanel()">
                 <label for="activar-texto"><i class="fa-solid fa-xmark cruz-panel"></i></label>
-                <h2>TEXTO</h2>
+                <h2 class="tituloPanel">TEXTO</h2>
                 <h3>SUPERIOR</h3>
                 <div class="contenedor-tex-superior">
-                    <textarea name="" id="tex-superior">Texto superior</textarea>
+                    <textarea name="" id="tex-superior"  >Texto superior</textarea>
                     <div class="sin-texto">
                         <input type="checkbox" id="sin-tex-superior">
                         <label for="sin-tex-superior">Sin texto superior</label>
@@ -109,7 +111,7 @@
                 </div>
                 <h3>INFERIOR</h3>
                 <div class="contenedor-tex-inferior">
-                    <textarea name="" id="tex-inferior">Texto inferior</textarea>
+                    <textarea name="" id="tex-inferior" >Texto inferior</textarea>
                     <div class="sin-texto">
                         <input type="checkbox" id="sin-tex-inferior">
                         <label for="sin-tex-inferior">Sin texto inferior</label>
@@ -158,13 +160,13 @@
                         <h3>FONDO</h3>
                         <div class="color-texto">
                             <input type="color" class="color-letra" value="#FFFFFF"
-                                oninput="textoColorFondo.value=value.toUpperCase()">
+                            oninput="fondoTextoColor(event)">
                             <output id="textoColorFondo">#FFFFFF</output>
                         </div>
                     </div>
 
                 </div>
-                <div class="sin-texto">
+                <div class="texto-fondo-transparente">
                     <input type="checkbox" id="fondo-transparente">
                     <label for="fondo-transparente">Fondo transparente</label>
                 </div>

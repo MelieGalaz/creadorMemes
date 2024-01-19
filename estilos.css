@@ -18,8 +18,7 @@ body {
     background-size: cover;
 }
 
-h1,
-h2 {
+.tituloConColor {
     text-align: center;
     color: transparent;
     font-size: 1.6em;
@@ -29,24 +28,31 @@ h2 {
     -webkit-background-clip: text;
 }
 
-.modo-oscuro h1 {
+.modo-oscuro .tituloConColor {
     text-align: center;
     color: rgb(204, 204, 204);
     font-size: 1.6em;
 }
-
-h2 {
-
+.tituloPanel {
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(90deg, #080808, #404af4);
+    background-size: 200% 200%;
+    animation: animacionGradiente 5s infinite;
+    -webkit-background-clip: text;
     font-size: 1.4em;
 }
-.modo-oscuro h2 {
+.modo-oscuro .tituloPanel {
     color: rgb(204, 204, 204);
 }
 
-.texto-meme {
-    color: #878a8c;
-    width: 300px;
+.texto-meme{
+    color: #515355;
+    width: 100%;
+    text-align: center;
+    
 }
+
 
 @keyframes animacionGradiente {
     0% {
@@ -136,16 +142,16 @@ main {
     width: 85%;
     height: 100%;
     overflow: hidden;
-    border: 1px solid rgb(238, 208, 208);
 }
 
 .imagenInterna img {
     max-width: 100%;
     max-height: 100%;
     width: auto;
-    height: auto;
+    height: 300px;
     display: block;
     margin: 0 auto;
+    object-fit: cover;
 
 }
 
@@ -190,7 +196,7 @@ main {
 
 aside {
     display: none;
-    height: 167px;
+    height: 172px;
     width: 332px;
     overflow: scroll;
     color: rgb(27, 27, 27);
@@ -497,6 +503,12 @@ textarea:focus {
     background-color: #8caef7;
     font-size: 0.9em;
 }
+.texto-fondo-transparente{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+
+}
 
 
 .modo-oscuro .color-texto{
@@ -508,6 +520,7 @@ textarea:focus {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    margin: 10px 0;
 }
 
 .boton-contorno {
