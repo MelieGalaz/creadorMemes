@@ -338,3 +338,27 @@ const fondoTextoColor = (e) => {
 
 /*******listener al checkbox para que llame a la función cuando cambie su estado****/
 document.getElementById('fondo-transparente').addEventListener('change', fondoTextoColor);
+
+/*++++++++++++++++++++++++++ contorno del texto ++++++++++++++++++++++++++*/
+
+const ninguno = document.getElementById('contorno-ninguno');
+const claro = document.getElementById('contorno-claro');
+const oscuro =document.getElementById('contorno-oscuro');
+
+const contornotexto = (contorno) =>{
+    const ancho= '3px'
+    if(contorno=== ninguno){
+        contenedorTextoSuperior.style.textShadow='none';
+        contenedorTextoInferior.style.textShadow='none';
+
+    }else if(contorno===claro){
+        contenedorTextoInferior.style.textShadow='3px 3px 5px #ffffff';
+        contenedorTextoSuperior.style.textShadow='3px 3px 5px #ffffff';
+    }else if(contorno===oscuro){
+        contenedorTextoInferior.style.textShadow='3px 3px 5px #050505';
+        contenedorTextoSuperior.style.textShadow='3px 3px 5px #050505';
+    }
+}
+ninguno.addEventListener('click', () => contornotexto(ninguno));
+claro.addEventListener('click', () => contornotexto(claro));
+oscuro.addEventListener('click', () => contornotexto(oscuro));
