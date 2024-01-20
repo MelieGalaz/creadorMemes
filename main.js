@@ -23,7 +23,14 @@ const textoCentroBtn = document.getElementById('texto-centro');
 const textoIzquierdaBtn = document.getElementById('texto-izquierda');
 const fondoTransparenteCheckbox = document.getElementById('fondo-transparente');
 const textoColorFondo = document.getElementById('textoColorFondo');
-
+const espaciadotexto = document.getElementById('espaciadoTex');
+const interlineadoTexto = document.getElementById('interlineadoTex');
+const ninguno = document.getElementById('contorno-ninguno');
+const claro = document.getElementById('contorno-claro');
+const oscuro = document.getElementById('contorno-oscuro');
+const descargarMemeBtn = document.querySelector('.descargar-meme');
+const imagenTotalMeme = document.getElementById('imagenTotalMeme')
+const colorLetra = document.querySelector('color-letra');
 
 /*+++++++++++++++++++++++modo oscuro++++++++++++++++++++++++++++*/
 modoOscuroBtn.addEventListener('click', () => {
@@ -41,10 +48,12 @@ modoOscuroBtn.addEventListener('click', () => {
 /*++++++++++++++++++++++mostar paneles desde menu+++++++++++++++++++++++*/
 function mostrarPanel() {
     document.getElementById("panel").style.display = "block";
+    document.body.style.height= "100%";
 }
 
 function ocultarPanel() {
     document.getElementById("panel").style.display = "none";
+    document.body.style.height= "100vh";
 }
 
 
@@ -91,7 +100,7 @@ function cargarFotoInterna() {
 /**************************cargar foto desde compu******************** */
 function cargarFoto() {
     const urlInput = document.getElementById('urlInput').value;
-    
+
 
     const imagen = document.createElement('img');
     imagen.src = urlInput;
@@ -237,7 +246,7 @@ function actualizarTextos() {
     const textoInferior = textoInferiorInput.value.trim();
     contenedorTextoInferior.textContent = (sinTextoInferiorCheckbox.checked || textoInferior === '') ? '' : textoInferior;
 
-    
+
     if (textoSuperior === '') {
         contenedorTextoSuperior.textContent = 'Texto superior';
     }
@@ -257,9 +266,9 @@ actualizarTextos();
 /*+++++++++++++++++++++++++++++++++ familia de fuentes++++++++++++++++++++++++*/
 
 
-/******************cambiar la fuente del texto **************/ 
+/******************cambiar la fuente del texto **************/
 function cambiarFuenteTexto() {
-    /***Obtener el valor seleccionado en el <select>***** */ 
+    /***Obtener el valor seleccionado en el <select>***** */
     const nuevaFuente = familiaFuentesSelect.value;
 
     /*** fuente al texto superior********* */
@@ -283,7 +292,7 @@ function cambiarTamañoTexto() {
     contenedorTextoInferior.style.fontSize = nuevoTamaño;
 }
 
-/***evento al <input> para llamar a la función******/ 
+/***evento al <input> para llamar a la función******/
 inputTamañoTexto.addEventListener('input', cambiarTamañoTexto);
 
 cambiarTamañoTexto();
@@ -316,8 +325,8 @@ textoIzquierdaBtn.addEventListener('click', () => {
 
 const colorletraMeme = (e) => {
     document.getElementById('colorTexto').innerHTML = e.target.value.toUpperCase();
-    document.querySelector('.texto-meme:nth-of-type(1) ').style.color = e.target.value;
-    document.querySelector('.texto-meme:nth-of-type(2) ').style.color = e.target.value;
+    contenedorTextoSuperior.style.color = e.target.value;
+    contenedorTextoInferior.style.color = e.target.value;
 };
 
 
@@ -325,40 +334,73 @@ const colorletraMeme = (e) => {
 
 const fondoTextoColor = (e) => {
     const color = e.target.value;
-    textoColorFondo.innerHTML = color.toUpperCase();
+    if (e.target.value !== "on") {
+        textoColorFondo.innerHTML = color.toUpperCase();
+    }
+
 
     if (fondoTransparenteCheckbox.checked) {
-        contenedorTextoSuperior .style.backgroundColor = 'transparent';
+        contenedorTextoSuperior.style.backgroundColor = 'transparent';
         contenedorTextoInferior.style.backgroundColor = 'transparent';
     } else {
         contenedorTextoSuperior.style.backgroundColor = color;
         contenedorTextoInferior.style.backgroundColor = color;
     }
+
 };
+
+
 
 /*******listener al checkbox para que llame a la función cuando cambie su estado****/
 document.getElementById('fondo-transparente').addEventListener('change', fondoTextoColor);
 
+
+
 /*++++++++++++++++++++++++++ contorno del texto ++++++++++++++++++++++++++*/
 
-const ninguno = document.getElementById('contorno-ninguno');
-const claro = document.getElementById('contorno-claro');
-const oscuro =document.getElementById('contorno-oscuro');
 
-const contornotexto = (contorno) =>{
-    const ancho= '3px'
-    if(contorno=== ninguno){
-        contenedorTextoSuperior.style.textShadow='none';
-        contenedorTextoInferior.style.textShadow='none';
+const contornotexto = (contorno) => {
+    if (contorno === ninguno) {
+        contenedorTextoSuperior.style.textShadow = 'none';
+        contenedorTextoInferior.style.textShadow = 'none';
 
-    }else if(contorno===claro){
-        contenedorTextoInferior.style.textShadow='3px 3px 5px #ffffff';
-        contenedorTextoSuperior.style.textShadow='3px 3px 5px #ffffff';
-    }else if(contorno===oscuro){
-        contenedorTextoInferior.style.textShadow='3px 3px 5px #050505';
-        contenedorTextoSuperior.style.textShadow='3px 3px 5px #050505';
+    } else if (contorno === claro) {
+        contenedorTextoInferior.style.textShadow = '3px 3px 5px #ffffff';
+        contenedorTextoSuperior.style.textShadow = '3px 3px 5px #ffffff';
+    } else if (contorno === oscuro) {
+        contenedorTextoInferior.style.textShadow = '3px 3px 5px #050505';
+        contenedorTextoSuperior.style.textShadow = '3px 3px 5px #050505';
     }
 }
 ninguno.addEventListener('click', () => contornotexto(ninguno));
 claro.addEventListener('click', () => contornotexto(claro));
 oscuro.addEventListener('click', () => contornotexto(oscuro));
+
+/*+++++++++++++++++++++++++++++ espaciado del texto++++++++++++++++++++++++++++*/
+
+const texEspaciado = () => {
+    const espaciado = espaciadoTex.value
+    contenedorTextoInferior.style.padding = `${espaciado}px 50px`
+    contenedorTextoSuperior.style.padding = `${espaciado}px 50px`
+}
+espaciadotexto.addEventListener('input', texEspaciado);
+
+/*+++++++++++++++++++++++ interlineado   +++++++++++++++++++++++++++++ */
+
+const texInterlineado = () => {
+    const interlineado = interlineadoTexto.value
+    contenedorTextoInferior.style.lineHeight = interlineado
+    contenedorTextoSuperior.style.lineHeight = interlineado
+}
+interlineadoTexto.addEventListener('change', texInterlineado);
+
+
+
+
+/*+++++++++++++++++++ descargar meme ++++++++++++++++++++ */
+
+descargarMemeBtn.addEventListener("click", () => {
+    domtoimage.toBlob(imagenTotalMeme).then((blob) => {
+        window.saveAs(blob, "meme.png");
+    });
+});

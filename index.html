@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+        integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
+        integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="icon" href="imagenes/tierra.png" type="image/x-icon">
     <link rel="stylesheet" href="estilos.css">
     <title>Document</title>
@@ -28,10 +34,10 @@
 
     <main>
         <div class="contenedor-padre">
-            <div class="contenedor">
-                <h2 class="texto-meme" >Texto superior</h2>
+            <div class="contenedor" id="imagenTotalMeme">
+                <h2 class="texto-meme">Texto superior</h2>
                 <div class="imagenInterna contenedor_imagen" id="imagenFondo">
-                    <img src="imagenes/meme1.jpg" alt="">
+                    <img src="" alt="">
                 </div>
                 <h2 class="texto-meme">Texto inferior</h2>
             </div>
@@ -46,12 +52,13 @@
                 <div class="contenedor-carga-fotos">
                     <label for="cargarImagen">Cargar Imagen:</label>
                     <input type="file" id="cargarImagen" accept="imagen/png, imagen/gif, imagen/jpg"
-                        onchange="cargarFotoInterna()">
+                        onchange="cargarFotoInterna()" required>
                     <label for="cargarImagen" class="custom-file-upload" id="customFileUpload">Seleccionar
                         Archivo</label>
 
                     <label for="urlInput">URL de la Foto:</label>
-                    <input class="url-imagen" type="text" id="urlInput" oninput="cargarFoto()" required>
+                    <input class="url-imagen" type="text" id="urlInput" oninput="cargarFoto()"
+                        accept="imagen/png, imagen/gif, imagen/jpg" required>
                 </div>
                 <div>
                     <h3>FONDO</h3>
@@ -89,7 +96,7 @@
                         <label for="hue">Hue</label>
                         <input type="range" id="hue" min="0" max="360" value="0">
                         <label for="salurado">Saturado</label>
-                        <input type="range" id="saturado" min="100" max="1000" value="100" step="10">
+                        <input type="range" id="saturado" min="0" max="200" value="100" step="10">
                         <label for="negativo">Negativo</label>
                         <input type="range" id="negativo" min="0" max="1" value="0" step="0.1">
                     </div>
@@ -103,7 +110,7 @@
                 <h2 class="tituloPanel">TEXTO</h2>
                 <h3>SUPERIOR</h3>
                 <div class="contenedor-tex-superior">
-                    <textarea name="" id="tex-superior"  >Texto superior</textarea>
+                    <textarea name="" id="tex-superior">Texto superior</textarea>
                     <div class="sin-texto">
                         <input type="checkbox" id="sin-tex-superior">
                         <label for="sin-tex-superior">Sin texto superior</label>
@@ -111,7 +118,7 @@
                 </div>
                 <h3>INFERIOR</h3>
                 <div class="contenedor-tex-inferior">
-                    <textarea name="" id="tex-inferior" >Texto inferior</textarea>
+                    <textarea name="" id="tex-inferior">Texto inferior</textarea>
                     <div class="sin-texto">
                         <input type="checkbox" id="sin-tex-inferior">
                         <label for="sin-tex-inferior">Sin texto inferior</label>
@@ -151,16 +158,14 @@
                     <div class="contenedor-color">
                         <h3>COLOR</h3>
                         <div class="color-texto">
-                            <input type="color" class="color-letra" value="#000000"
-                                oninput="colorletraMeme(event)">
+                            <input type="color" class="color-letra" value="#000000" oninput="colorletraMeme(event)">
                             <output id="colorTexto">#000000</output>
                         </div>
                     </div>
                     <div class="contenedor-color">
                         <h3>FONDO</h3>
                         <div class="color-texto">
-                            <input type="color" class="color-letra" value="#FFFFFF"
-                            oninput="fondoTextoColor(event)">
+                            <input type="color" class="color-letra" value="#FFFFFF" oninput="fondoTextoColor(event)">
                             <output id="textoColorFondo">#FFFFFF</output>
                         </div>
                     </div>
@@ -178,10 +183,10 @@
                 </div>
                 <div class="espaciado">
                     <h3>ESPACIADO</h3>
-                    <input type="number" id="espaciado-tex">
+                    <input type="number" id="espaciadoTex" min="5" max="40" value="30">
                 </div>
                 <h3>INTERLINEADO</h3>
-                <select id="interlineado-tex">
+                <select id="interlineadoTex">
                     <option value="0.8">0.8</option>
                     <option value="1">1</option>
                     <option value="1.2">1.2</option>
@@ -192,6 +197,28 @@
             </section>
         </aside>
     </main>
+    <footer>
+        <ul class="pie_redes">
+            <li class="pie_iconos">
+                <a class="iconos_contacto_footer" target="_blank" href="https://github.com/MelieGalaz" >
+                    <i class="fa-brands fa-github-alt color_icono"></i>
+                </a>
+
+            </li>
+            <li class="pie_iconos">
+                <a class="iconos_contacto_footer" target="_blank"
+                    href="https://www.linkedin.com/in/mely-galaz-9638bb246/">
+                    <i class="fa-brands fa-linkedin color_icono"></i>
+                </a>
+            </li>
+            <li class="pie_iconos">
+                <a class="iconos_contacto_footer" target="_blank" href="mailto:galazmely27@gmail.com" >
+                    <i class="fa-solid fa-envelope color_icono"></i>
+                </a>
+            </li>
+        </ul>
+        <p class="final_footer">Copyright © 2024  Melie Galaz</p>
+    </footer>
 
     <script src="main.js"></script>
 </body>
