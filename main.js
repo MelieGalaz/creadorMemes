@@ -43,9 +43,9 @@ modoOscuroBtn.addEventListener('click', () => {
     body.classList.toggle('modo-oscuro');
 
     if (body.classList.contains('modo-oscuro')) {
-        modoOscuroBtn.innerHTML = '<i class="fa-regular fa-lightbulb"></i>Modo claro';
+        modoOscuroBtn.innerHTML = '<i class="fa-regular fa-lightbulb" arial-label="cambiar modo claro"></i>Modo claro';
     } else {
-        modoOscuroBtn.innerHTML = '<i class="fa-regular fa-lightbulb"></i>Modo oscuro';
+        modoOscuroBtn.innerHTML = '<i class="fa-regular fa-lightbulb" arial-label="cambiar modo oscuro"></i>Modo oscuro';
     }
 });
 
@@ -58,7 +58,6 @@ function mostrarPanel() {
     document.body.style.height = "100%";
     if (anchoVentana <= 970) {
         document.body.style.height = '100%'
-        activarImagen.style.display = "none";
     } else {
         document.body.style.height = '100vh'
     }
@@ -94,20 +93,21 @@ window.visualViewport.addEventListener("resize", () => {
     imagen.style.height = `${window.visualViewport.width}px`;
     contenedor.style.height = `${window.visualViewport.width}px`;
     contenedorMeme .style.height=`${window.visualViewport.width}px`
+    
 }); 
 window.visualViewport.addEventListener("resize",()=>{
     if(window.visualViewport.width<500){
         imagen.style.height = `${window.visualViewport.width}px`;
         contenedor.style.height = `${window.visualViewport.width}px`;
-        contenedorMeme .style.height=`${window.visualViewport.width}px`
+        contenedorMeme.style.height=`${window.visualViewport.width}px`
     }else{
         
-        imagen.style.height = "500px"
-        imagen.style.width = "500px"
+        imagen.style.height = "500px";
+        imagen.style.width = "500px";
         contenedor.style.height = "500px";
         contenedor.style.width = "500px";
-        contenedorMeme .style.height="500px"
-        contenedorMeme .style.width="500px"
+        contenedorMeme.style.height="500px";
+        contenedorMeme.style.width="500px";
     }
 })
 
