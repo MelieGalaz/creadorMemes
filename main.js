@@ -5,7 +5,8 @@ const sectionTexto = document.querySelector(".sec-texto");
 const panelAside = document.querySelector("#panel");
 const divImagen = document.querySelector(".contenedorImagen")
 const cargarImagen = document.getElementById("cargarImagen")
-const imagen = document.querySelector('.contenedor-imagen');
+const contenedorMeme = document.querySelector('.contenedor-meme');
+const imagen = document.querySelector('.contenedor_imagen');
 const imagenInterna = document.querySelector('.imagenInterna');
 const fileInput = document.getElementById('cargarImagen');
 const selectFondo = document.getElementById('selec-fondo');
@@ -31,6 +32,11 @@ const oscuro = document.getElementById('contorno-oscuro');
 const descargarMemeBtn = document.querySelector('.descargar-meme');
 const imagenTotalMeme = document.getElementById('imagenTotalMeme')
 const colorLetra = document.querySelector('color-letra');
+const contenedor = document.querySelector('.contenedor')
+const anchoVentana = window.visualViewport.width;
+const aside = document.querySelector('aside.destok');
+
+
 
 /*+++++++++++++++++++++++modo oscuro++++++++++++++++++++++++++++*/
 modoOscuroBtn.addEventListener('click', () => {
@@ -43,17 +49,24 @@ modoOscuroBtn.addEventListener('click', () => {
     }
 });
 
-
+/********************************************************** */
 
 /*++++++++++++++++++++++mostar paneles desde menu+++++++++++++++++++++++*/
 function mostrarPanel() {
+    const anchoVentana = window.visualViewport.width;
     document.getElementById("panel").style.display = "block";
-    document.body.style.height= "100%";
+    document.body.style.height = "100%";
+    if (anchoVentana <= 970) {
+        document.body.style.height = '100%'
+        activarImagen.style.display = "none";
+    } else {
+        document.body.style.height = '100vh'
+    }
 }
 
 function ocultarPanel() {
     document.getElementById("panel").style.display = "none";
-    document.body.style.height= "100vh";
+    document.body.style.height = "100vh";
 }
 
 
@@ -63,6 +76,7 @@ document.querySelector(".imagen").addEventListener("click", (e) => {
     sectionImagen.classList.remove("oculto");
     mostrarPanel();
     e.preventDefault();
+    sectionImagen.focus();
 })
 
 document.querySelector(".texto").addEventListener("click", (e) => {
@@ -71,6 +85,49 @@ document.querySelector(".texto").addEventListener("click", (e) => {
     mostrarPanel();
     e.preventDefault();
 })
+
+/******************* funcion para que el contenedor del meme y boton crezcan exponencialmente **********/
+window.visualViewport.addEventListener("resize", () => {
+    console.log("resize");
+    console.log("imagenInterna")
+    console.log("contenedor")
+    imagen.style.height = `${window.visualViewport.width}px`;
+    contenedor.style.height = `${window.visualViewport.width}px`;
+    contenedorMeme .style.height=`${window.visualViewport.width}px`
+}); 
+window.visualViewport.addEventListener("resize",()=>{
+    if(window.visualViewport.width<500){
+        imagen.style.height = `${window.visualViewport.width}px`;
+        contenedor.style.height = `${window.visualViewport.width}px`;
+        contenedorMeme .style.height=`${window.visualViewport.width}px`
+    }else{
+        
+        imagen.style.height = "500px"
+        imagen.style.width = "500px"
+        contenedor.style.height = "500px";
+        contenedor.style.width = "500px";
+        contenedorMeme .style.height="500px"
+        contenedorMeme .style.width="500px"
+    }
+})
+
+
+
+
+
+/********************   cambio para destok  *********************/
+function ajustarEstilosPantalla() {
+
+    if (anchoVentana <= 970) {
+        // Establecer estilos para pantallas menores o iguales a 970px
+        panelAside.style.display = "block"; 
+    } else {
+        // Establecer estilos para pantallas mayores a 970px
+        panelAside.style.display = "none";
+        body.style.height = '100vh'
+    }
+}
+
 
 
 /*///////////////////////////PANEL IMAGEN/////////////////////////*/
@@ -250,9 +307,9 @@ function actualizarTextos() {
     if (textoSuperior === '') {
         contenedorTextoSuperior.textContent = 'Texto superior';
     }
-
     if (textoInferior === '') {
         contenedorTextoInferior.textContent = 'Texto inferior';
+
     }
 }
 textoSuperiorInput.addEventListener('input', actualizarTextos);

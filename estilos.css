@@ -31,8 +31,8 @@ body {
 .modo-oscuro .tituloConColor {
     text-align: center;
     color: rgb(204, 204, 204);
-    font-size: 1.6em;
 }
+
 .tituloPanel {
     text-align: center;
     color: transparent;
@@ -42,15 +42,16 @@ body {
     -webkit-background-clip: text;
     font-size: 1.4em;
 }
+
 .modo-oscuro .tituloPanel {
     color: rgb(204, 204, 204);
 }
 
-.texto-meme{
+.texto-meme {
     color: #515355;
     width: 100%;
     text-align: center;
-    
+    position: static;
 }
 
 
@@ -68,7 +69,8 @@ body {
     }
 }
 
-header, footer{
+header,
+footer {
     display: flex;
     justify-content: center;
     background: linear-gradient(93deg, #f32d79, #139bcc, #23d5ab);
@@ -76,9 +78,10 @@ header, footer{
     animation: gradiente 15s ease infinite;
     box-shadow: 8px 3px 7px 3px #4f4a4a;
 }
+
 .modo-oscuro header {
 
-    background: linear-gradient(93deg, #0c0c0c, #8f8f8f);
+    background: linear-gradient(93deg, #0c0c0c, #200c30);
     background-size: 400% 400%;
     animation: gradiente 15s ease infinite;
     box-shadow: 8px 3px 7px 3px #4f4a4a;
@@ -104,15 +107,19 @@ header, footer{
     justify-content: space-around;
 }
 
-.contenedor-padre {
+.contenedor-meme {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 10px;
     position: fixed;
     top: 100px;
+    width: 100%;
+    height: 386px;
+    margin: 20px;
 }
+
+
 
 main {
     height: 100%;
@@ -126,7 +133,7 @@ main {
 
 .contenedor {
     height: 344px;
-    width: 332px;
+    width: 89%;
     border: 1px solid #fafafa10;
     background: #fafafa10;
     backdrop-filter: blur(0.8em);
@@ -141,14 +148,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 85%;
-    height: 100%;
+    width: 100%;
+    height: 300px;
     overflow: hidden;
 }
-
 .imagenInterna img {
     width: 100%;
-    margin: 0 auto;
+    height: 100%;
     object-fit: cover;
 
 }
@@ -164,7 +170,7 @@ main {
 
 }
 
-.boton_nav:hover{
+.boton_nav:hover {
     text-shadow: 2px 2px 9px #000000;
 }
 
@@ -186,7 +192,8 @@ main {
     border-radius: 8px;
     background-color: #404af4;
 }
-.descargar-meme:hover{
+
+.descargar-meme:hover {
     box-shadow: 0px 1px 20px 1px #e6dcdc;
 }
 
@@ -194,7 +201,7 @@ main {
 
 .modo-oscuro .descargar-meme {
     color: white;
-    background-color: #4e4f50;
+    background-color: #200c30;
     border: 1px solid #f4f0e8;
 }
 
@@ -209,11 +216,28 @@ aside {
     margin-bottom: 50px;
 }
 
+@media (min-width: 971px) {
+    aside.destok {
+    display: none;
+    color: azure;
+    height: 100%;
+    background: linear-gradiente(93deg, #f32d79, #139bcc, #23d5ab);
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    transition: width 0.3s linear;
+    margin-top: 0;
+}
+}
+
+
+
 .modo-oscuro aside {
-    background: linear-gradient(93deg, #0c0c0c, #8f8f8f);
+    background: linear-gradient(93deg, #0c0c0c, #200c30);
     background-size: 400% 400%;
     animation: gradiente 15s ease infinite;
-    color:rgb(204, 204, 204);
+    color: rgb(204, 204, 204);
 }
 
 
@@ -231,23 +255,6 @@ aside {
     text-align: right;
     display: block;
 }
-
-
-
-
-/*aside {
-    color: azure;
-    width: 20%;
-    height: 100%;
-    background-color: #6eaec2;
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-    transition: width 0.3s linear;
-    para destok
-
-}*/
 
 .oculto {
     display: none;
@@ -300,9 +307,10 @@ h3 {
     font-size: 1.1em;
     margin: 10px 0px;
 }
-.modo-oscuro h3{
-    color:rgb(204, 204, 204);
-} 
+
+.modo-oscuro h3 {
+    color: rgb(204, 204, 204);
+}
 
 
 .contenedor-fondo-foto {
@@ -402,12 +410,14 @@ input[type="range"]::-webkit-slider-thumb {
     margin: 0 auto;
     margin-top: 10px;
 }
-.reestablecer-filtros:hover{
+
+.reestablecer-filtros:hover {
     box-shadow: 0px 1px 20px 1px #e6dcdc;
 }
+
 .modo-oscuro .reestablecer-filtros {
     color: white;
-    background-color: #4e4f50;
+    background-color: #1e1236;
     border: 1px solid #f4f0e8;
 }
 
@@ -449,8 +459,10 @@ textarea:focus {
     border: none;
     font-size: 1em;
 }
-.modo-oscuro #familia-fuentes{
-    background-color:#eeeeee; ;
+
+.modo-oscuro #familia-fuentes {
+    background-color: #eeeeee;
+    ;
 }
 
 .contenedor-tex-posicion {
@@ -475,7 +487,7 @@ textarea:focus {
     font-size: 1em;
 }
 
-.modo-oscuro #texto-tamaño{
+.modo-oscuro #texto-tamaño {
     background-color: #eeeeee;
 }
 
@@ -489,7 +501,7 @@ textarea:focus {
     border: none;
 }
 
-.modo-oscuro .posicion{
+.modo-oscuro .posicion {
     background-color: #eeeeee;
     color: black;
 }
@@ -509,15 +521,16 @@ textarea:focus {
     background-color: #8caef7;
     font-size: 0.9em;
 }
-.texto-fondo-transparente{
+
+.texto-fondo-transparente {
     display: flex;
     flex-direction: row;
-    gap:10px;
+    gap: 10px;
 
 }
 
 
-.modo-oscuro .color-texto{
+.modo-oscuro .color-texto {
     background-color: #eeeeee;
     color: black;
 }
@@ -536,14 +549,16 @@ textarea:focus {
     border: none;
     background-color: #8caef7;
 }
-.modo-oscuro .boton-contorno{
+
+.modo-oscuro .boton-contorno {
     background-color: #eeeeee;
 }
 
 .boton-contorno:hover {
     box-shadow: 1px 5px 16px #202065;
 }
-.modo-oscuro .boton-contorno:hover{
+
+.modo-oscuro .boton-contorno:hover {
     box-shadow: 1px 5px 16px #747488;
 }
 
@@ -556,8 +571,8 @@ textarea:focus {
     padding-left: 10px;
 }
 
-.modo-oscuro #espaciadoTex{
-    background-color:#eeeeee ;
+.modo-oscuro #espaciadoTex {
+    background-color: #eeeeee;
 }
 
 #interlineadoTex {
@@ -569,53 +584,31 @@ textarea:focus {
     padding-left: 10px;
 
 }
-.modo-oscuro #interlineadoTex{
+
+.modo-oscuro #interlineadoTex {
     background-color: #eeeeee;
 }
 
-footer{
-    display:flex;
-    flex-direction:column;
+footer {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     height: 12%;
 }
-.modo-oscuro footer{
 
-    background: linear-gradient(93deg, #0c0c0c, #8f8f8f);
+.modo-oscuro footer {
+
+    background: linear-gradient(93deg, #0c0c0c, #200c30);
     background-size: 400% 400%;
     animation: gradiente 15s ease infinite;
     box-shadow: 8px 3px 7px 3px #4f4a4a;
 }
-.pie_redes{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 20px;
-}
 
-.pie_iconos{
-    list-style: none;
-}
-.color_icono{
-    font-size: 1.2em;
-    color:#000000;
-}
 
-.color_icono:hover{
-    text-shadow: 2px 2px 9px #000000;
-}
-
-.modo-oscuro .color_icono {
-    color: rgb(217, 220, 223);
-}
-
-.modo-oscuro .color_icono:hover {
-    text-shadow: 2px 2px 9px #f7e9e9;
-
-}
-.final_footer{
+.final_footer {
     font-size: 1em;
 }
-.modo-oscuro .final_footer{
+
+.modo-oscuro .final_footer {
     color: white;
 }
