@@ -21,7 +21,7 @@ body {
 .tituloConColor {
     text-align: center;
     color: transparent;
-    font-size: 1.6em;
+    font-size: 2em;
     background: linear-gradient(90deg, #080808, #404af4);
     background-size: 200% 200%;
     animation: animacionGradiente 5s infinite;
@@ -102,7 +102,6 @@ footer {
 }
 
 .contenedor_boton {
-    width: 220px;
     display: flex;
     justify-content: space-around;
 }
@@ -160,7 +159,7 @@ main {
 }
 
 .boton_nav {
-    font-size: 0.9em;
+    font-size: 1em;
     display: flex;
     align-items: center;
     gap: 4px;
