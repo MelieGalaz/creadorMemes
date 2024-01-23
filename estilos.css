@@ -7,12 +7,14 @@
     font-family: 'Oswald', sans-serif;
 
 }
-html{
+
+html {
     background-image: url(imagenes/stars-7088.gif);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
+
 body {
     height: 100vh;
     display: flex;
@@ -225,17 +227,17 @@ aside {
 
 @media (min-width: 971px) {
     aside.destok {
-    display: none;
-    color: azure;
-    height: 100%;
-    background: linear-gradiente(93deg, #f32d79, #139bcc, #23d5ab);
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-    transition: width 0.3s linear;
-    margin-top: 0;
-}
+        display: none;
+        color: azure;
+        height: 100%;
+        background: linear-gradiente(93deg, #f32d79, #139bcc, #23d5ab);
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        transition: width 0.3s linear;
+        margin-top: 0;
+    }
 }
 
 
