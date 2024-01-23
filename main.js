@@ -30,9 +30,9 @@ const ninguno = document.getElementById('contorno-ninguno');
 const claro = document.getElementById('contorno-claro');
 const oscuro = document.getElementById('contorno-oscuro');
 const descargarMemeBtn = document.querySelector('.descargar-meme');
-const imagenTotalMeme = document.getElementById('imagenTotalMeme')
+const imagenTotalMeme = document.getElementById('imagenTotalMeme');
 const colorLetra = document.querySelector('color-letra');
-const contenedor = document.querySelector('.contenedor')
+const contenedor = document.querySelector('.contenedor');
 const anchoVentana = window.visualViewport.width;
 const aside = document.querySelector('aside.destok');
 
