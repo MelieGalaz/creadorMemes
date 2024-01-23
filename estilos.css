@@ -8,13 +8,6 @@
 
 }
 
-html {
-    background-image: url(imagenes/stars-7088.gif);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
 body {
     height: 100vh;
     display: flex;
