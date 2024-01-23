@@ -185,7 +185,6 @@ const colorFondoFoto = (e) => {
     document.getElementById('colorFondo').innerHTML = e.target.value.toUpperCase();
     document.querySelector('.contenedor').style.backgroundColor = e.target.value;
 
-
 };
 
 /*++++++++++++++++++++++++mezcla con los colores blendMode+++++++++++++++++++*/
