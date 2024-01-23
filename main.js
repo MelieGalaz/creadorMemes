@@ -86,32 +86,35 @@ document.querySelector(".texto").addEventListener("click", (e) => {
 })
 
 /******************* funcion para que el contenedor del meme y boton crezcan exponencialmente **********/
-window.visualViewport.addEventListener("resize", () => {
+document.addEventListener("DOMContentLoaded", () => {
     console.log("resize");
-    console.log("imagenInterna")
-    console.log("contenedor")
-    imagen.style.height = `${window.visualViewport.width}px`;
-    contenedor.style.height = `${window.visualViewport.width}px`;
-    contenedorMeme .style.height=`${window.visualViewport.width}px`
-    
-}); 
-window.visualViewport.addEventListener("resize",()=>{
-    if(window.visualViewport.width<500){
+    console.log("imagenInterna");
+    console.log("contenedor");
+
+    const resizeHandler = () => {
         imagen.style.height = `${window.visualViewport.width}px`;
         contenedor.style.height = `${window.visualViewport.width}px`;
-        contenedorMeme.style.height=`${window.visualViewport.width}px`
-    }else{
-        
-        imagen.style.height = "500px";
-        imagen.style.width = "500px";
-        contenedor.style.height = "500px";
-        contenedor.style.width = "500px";
-        contenedorMeme.style.height="500px";
-        contenedorMeme.style.width="500px";
-    }
-})
+        contenedorMeme.style.height = `${window.visualViewport.width}px`;
+
+        if (window.visualViewport.width < 500) {
+            imagen.style.height = `${window.visualViewport.width}px`;
+            contenedor.style.height = `${window.visualViewport.width}px`;
+            contenedorMeme.style.height = `${window.visualViewport.width}px`;
+        } else {
+            imagen.style.height = "500px";
+            imagen.style.width = "500px";
+            contenedor.style.height = "500px";
+            contenedor.style.width = "500px";
+            contenedorMeme.style.height = "500px";
+            contenedorMeme.style.width = "500px";
+        }
+    };
+
+    window.visualViewport.addEventListener("resize", resizeHandler);
 
 
+    resizeHandler();
+});
 
 
 
@@ -434,12 +437,12 @@ claro.addEventListener('click', () => contornotexto(claro));
 oscuro.addEventListener('click', () => contornotexto(oscuro));
 
 /*+++++++++++++++++++++++++++++ espaciado del texto++++++++++++++++++++++++++++*/
-
 const texEspaciado = () => {
-    const espaciado = espaciadoTex.value
-    contenedorTextoInferior.style.padding = `${espaciado}px 50px`
-    contenedorTextoSuperior.style.padding = `${espaciado}px 50px`
-}
+    const espaciado = espaciadotexto.value;
+    contenedorTextoInferior.style.letterSpacing = `${espaciado}px`;
+    contenedorTextoSuperior.style.letterSpacing = `${espaciado}px`;
+};
+
 espaciadotexto.addEventListener('input', texEspaciado);
 
 /*+++++++++++++++++++++++ interlineado   +++++++++++++++++++++++++++++ */
