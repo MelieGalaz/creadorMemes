@@ -1,6 +1,6 @@
 # Generador de MEMES
 
-En este proyecto de [GENERADOR DE MEMES](https://meliegalaz.github.io/creadorMemes/ ). se ingresa un imagen y la transforma en un meme agregando texto, color, filtros y se descarga para guardarla. 
+En este proyecto de [GENERADOR DE MEMES](https://meliegalaz.github.io/creadorMemes/ ) se ingresa un imagen y la transforma en un meme agregando texto, color, filtros y se descarga para guardarla. 
 
 
 
@@ -11,13 +11,13 @@ Aca se puede ver al ingresar a la aplicación desde un teléfono en primer lugar
 Después tres botones, los primeros dos (imagen y texto) abren los paneles para realizar cambios y el tercer botón (modo oscuro) cambia el color de toda la app a color más oscuro.
 En el centro se encuentra el lugar donde se cargará la imagen que queramos transformar en meme con sus respectivos textos (inferior y superior).
 Abajo de este contenedor se encuentra el botón para descagar el meme una vez que se hayan realizado cada cambio que se desee.
-Y para finalizar el pie de pagina donde se encuentra el nombre de quien realizó esta app.
+Y para finalizar el pie de página donde se encuentra el nombre de quien realizó esta app.
 Toda la app tanto en modo claro como en modo oscuro tiene un color que va cambiando y posee un fondo animado de estrellas.
 
 
 
 
-## CAMBIOS EN LA DISPOSICIÓN SEGUN EL TAMAÑO DE DISPOSITIVO
+## CAMBIOS EN LA DISPOSICIÓN SEGÚN EL TAMAÑO DE DISPOSITIVO
  Esta app esta programa para ser usada en cualquier dispositivo dependiendo el tamaño de estos tendrá dos diferentes posiciones de los paneles 
 
 TAMAÑO CELULAR
@@ -68,7 +68,7 @@ En este panel se pueden editar los textos que va a llevar el meme y tiene los si
 
 - Cierre del panel(x)
 
-- Titulo TEXTO
+- Título TEXTO
 
 - Texto superior: acá cambiamos el texto de arriba del meme
 
@@ -100,7 +100,7 @@ En este panel se pueden editan la imagen que carguemos y tiene los siguientes co
 ![panel imagen](imagenes/meme7.PNG)
 
 - Checkbox para cerrar el panel
-- Titulo  IMAGEN
+- Título  IMAGEN
 - Cargar imagen desde galeria
 - URL para pagar foto copiando desde google o pagina externa
 - Fondo : coloca fondo de color a la foto
