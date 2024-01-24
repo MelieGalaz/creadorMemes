@@ -58,14 +58,13 @@
                 <div class="contenedor-carga-fotos">
                     <!-------------------------CARGA DE FOTOS GUARDADAS EN DISPOSITIVO O POR URL---------------->
                     <label for="cargarImagen">Cargar Imagen:</label>
-                    <input type="file" id="cargarImagen" accept="imagen/png, imagen/gif, imagen/jpg"
+                    <input type="file" id="cargarImagen" 
                         onchange="cargarFotoInterna()" required aria-label="imagen desde archivo">
                     <label for="cargarImagen" class="custom-file-upload" id="customFileUpload">Seleccionar
                         Archivo</label>
 
                     <label for="urlInput">URL de la Foto:</label>
-                    <input class="url-imagen" type="text" id="urlInput" oninput="cargarFoto()"
-                        accept="imagen/png, imagen/gif, imagen/jpg" required aria-label="url de imagen">
+                    <input class="url-imagen" type="text" id="urlInput" oninput="cargarFoto()" required aria-label="url de imagen">
                 </div>
                 <div>
                     <!-------------------------COLOR DE FONDO IMAGEN--------------------------->
