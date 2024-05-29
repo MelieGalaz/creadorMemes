@@ -117,12 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
 /********************   cambio para destok  *********************/
 function ajustarEstilosPantalla() {
   if (anchoVentana <= 970) {
-    // Establecer estilos para pantallas menores o iguales a 970px
     panelAside.style.display = "block";
   } else {
-    // Establecer estilos para pantallas mayores a 970px
     panelAside.style.display = "none";
-    body.style.height = "100vh";
+    body.style.Height = "100vh";
   }
 }
 
