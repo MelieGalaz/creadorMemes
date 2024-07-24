@@ -48,10 +48,12 @@ body {
 }
 
 .texto-meme {
-  color: #515355;
+  color: #000000;
+  padding-block: 10px;
   width: 100%;
   text-align: center;
   position: static;
+  background-color: #ffff;
 }
 
 @keyframes animacionGradiente {
@@ -109,8 +111,8 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  position: fixed;
-  top: 100px;
+  position: sticky;
+  top: 20px;
   width: 100%;
   height: 386px;
   margin: 20px;
@@ -201,7 +203,7 @@ aside {
   background-size: 400% 400%;
   animation: gradiente 15s ease infinite;
   padding: 20px;
-  margin-top: 500px;
+  height: auto;
   margin-bottom: 50px;
   overflow: auto;
 }
@@ -405,9 +407,9 @@ input[type="range"]::-webkit-slider-thumb {
 
 /*******************seccion texto******************/
 
-textarea {
+.panel-tex-input {
   width: 100%;
-  height: 2rem;
+
   background-color: #8caef7;
   padding: 3px 6px;
   border: none;

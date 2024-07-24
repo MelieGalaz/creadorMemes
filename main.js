@@ -39,7 +39,8 @@ const colorLetra = document.querySelector("color-letra");
 const contenedor = document.querySelector(".contenedor");
 const anchoVentana = window.visualViewport.width;
 const aside = document.querySelector("aside.destok");
-
+const texMemeSuperior = document.getElementById("tex-meme-superior");
+const texMemeInferior = document.getElementById("tex-meme-inferior");
 /*+++++++++++++++++++++++modo oscuro++++++++++++++++++++++++++++*/
 modoOscuroBtn.addEventListener("click", () => {
   body.classList.toggle("modo-oscuro");
@@ -59,9 +60,9 @@ modoOscuroBtn.addEventListener("click", () => {
 function mostrarPanel() {
   const anchoVentana = window.visualViewport.width;
   document.getElementById("panel").style.display = "block";
-  document.body.style.height = "100%";
+  document.body.style.height = "auto";
   if (anchoVentana <= 970) {
-    document.body.style.height = "100%";
+    document.body.style.height = "auto";
   } else {
     document.body.style.height = "100vh";
   }
@@ -78,7 +79,6 @@ document.querySelector(".imagen").addEventListener("click", (e) => {
   sectionImagen.classList.remove("oculto");
   mostrarPanel();
   e.preventDefault();
-  sectionImagen.focus();
 });
 
 document.querySelector(".texto").addEventListener("click", (e) => {
@@ -178,106 +178,53 @@ document.getElementById("selec-fondo").onchange = () => {
   const selectedValue = document.getElementById("selec-fondo").value;
   document.querySelector(".imagenInterna img").style.mixBlendMode =
     selectedValue;
-  console.log(selectedValue);
 };
 
 /*++++++++++++++++++++++++++filtros+++++++++++++++++++++++++++++++*/
-let brilloValue = 1;
-let opacidadValue = 1;
-let contrasteValue = 100;
-let desenfoqueValue = 0;
-let escalaGrisesValue = 0;
-let sepiaValue = 0;
-let hueValue = 0;
-let saturadoValue = 100;
-let negativoValue = 0;
+
+const controles = {
+  brillo: document.getElementById("brillo"),
+  opacidad: document.getElementById("opacidad"),
+  contraste: document.getElementById("contraste"),
+  desenfoque: document.getElementById("desenfoque"),
+  escalaGrises: document.getElementById("escala-grises"),
+  sepia: document.getElementById("sepia"),
+  hue: document.getElementById("hue"),
+  saturado: document.getElementById("saturado"),
+  negativo: document.getElementById("negativo"),
+};
 
 function aplicarFiltros() {
-  const imagen = document.querySelector(".imagenInterna img");
-
-  if (imagen) {
-    imagen.style.filter = `
-            brightness(${brilloValue})
-            opacity(${opacidadValue})
-            contrast(${contrasteValue}%)
-            blur(${desenfoqueValue}px)
-            grayscale(${escalaGrisesValue}%)
-            sepia(${sepiaValue})
-            hue-rotate(${hueValue}deg)
-            saturate(${saturadoValue}%)
-            invert(${negativoValue})
-        `;
-  }
+  imagen.style.filter = `
+        brightness(${controles.brillo.value})
+        opacity(${controles.opacidad.value})
+        contrast(${controles.contraste.value}%)
+        blur(${controles.desenfoque.value}px)
+        grayscale(${controles.escalaGrises.value}%)
+        sepia(${controles.sepia.value}%)
+        hue-rotate(${controles.hue.value}deg)
+        saturate(${controles.saturado.value}%)
+        invert(${controles.negativo.value})
+      `;
 }
 
-/***** Función para restablecer filtros*****/
 function restablecerFiltros() {
-  brilloValue = 1;
-  opacidadValue = 1;
-  contrasteValue = 100;
-  desenfoqueValue = 0;
-  escalaGrisesValue = 0;
-  sepiaValue = 0;
-  hueValue = 0;
-  saturadoValue = 100;
-  negativoValue = 0;
-
+  for (let key in controles) {
+    controles[key].value =
+      controles[key].type === "range" ? controles[key].defaultValue : "";
+  }
   aplicarFiltros();
 }
 
-/****** Agregar eventos a los controles de filtros*********/
-document.getElementById("brillo").addEventListener("input", (e) => {
-  brilloValue = e.target.value;
-  aplicarFiltros();
-});
+// Event listeners para los controles deslizantes
+for (let key in controles) {
+  controles[key].addEventListener("input", aplicarFiltros);
+}
 
-document.getElementById("opacidad").addEventListener("input", (e) => {
-  opacidadValue = e.target.value;
-  aplicarFiltros();
-});
-
-document.getElementById("contraste").addEventListener("input", (e) => {
-  contrasteValue = e.target.value;
-  aplicarFiltros();
-});
-
-document.getElementById("desenfoque").addEventListener("input", (e) => {
-  desenfoqueValue = e.target.value;
-  aplicarFiltros();
-});
-
-document.getElementById("escala-grises").addEventListener("input", (e) => {
-  escalaGrisesValue = e.target.value;
-  aplicarFiltros();
-});
-
-document.getElementById("sepia").addEventListener("input", (e) => {
-  sepiaValue = e.target.value;
-  aplicarFiltros();
-});
-
-document.getElementById("hue").addEventListener("input", (e) => {
-  hueValue = e.target.value;
-  aplicarFiltros();
-});
-
-document.getElementById("saturado").addEventListener("input", (e) => {
-  saturadoValue = e.target.value;
-  aplicarFiltros();
-});
-
-document.getElementById("negativo").addEventListener("input", (e) => {
-  negativoValue = e.target.value;
-  aplicarFiltros();
-});
-
-/*************** Botón para restablecer filtros ****************/
+// Event listener para el botón de restablecer
 document
   .querySelector(".reestablecer-filtros")
-  .addEventListener("click", () => {
-    restablecerFiltros();
-  });
-
+  .addEventListener("click", restablecerFiltros);
 /*/////////////////////////PANEL  TEXTO////////////////////////// */
 
 /*+++++++++++++++++++++++++++ cambiar texto superior e inferior+++++++++++++++++*/
@@ -383,9 +330,15 @@ const fondoTextoColor = (e) => {
   if (fondoTransparenteCheckbox.checked) {
     contenedorTextoSuperior.style.backgroundColor = "transparent";
     contenedorTextoInferior.style.backgroundColor = "transparent";
+    imagenTotalMeme.style.position = "relative";
+    texMemeSuperior.style.position = "absolute";
+    texMemeInferior.style.position = "absolute";
+    texMemeInferior.style.bottom = "0px";
   } else {
     contenedorTextoSuperior.style.backgroundColor = color;
     contenedorTextoInferior.style.backgroundColor = color;
+    texMemeSuperior.style.position = "static";
+    texMemeInferior.style.position = "static";
   }
 };
 

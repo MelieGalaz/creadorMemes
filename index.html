@@ -55,11 +55,11 @@
       <!----------------------CONTENEDOR DE LA IMAGEN Y BOTON DE DESCARGA------------->
       <div class="contenedor-meme">
         <div class="contenedor" id="imagenTotalMeme">
-          <h2 class="texto-meme">Texto superior</h2>
+          <h2 class="texto-meme" id="tex-meme-superior">Texto superior</h2>
           <div class="imagenInterna contenedor_imagen" id="imagenFondo">
             <img src="./imagenes/video2.gif" alt="foto meme" />
           </div>
-          <h2 class="texto-meme">Texto inferior</h2>
+          <h2 class="texto-meme" id="tex-meme-inferior">Texto inferior</h2>
         </div>
         <button class="descargar-meme">Descargar meme</button>
       </div>
@@ -143,7 +143,7 @@
                 id="brillo"
                 min="0"
                 max="2"
-                value="20"
+                value="1"
                 step="0.1"
               />
               <label for="opacidad">Opacidad</label>
@@ -159,9 +159,10 @@
               <input
                 type="range"
                 id="contraste"
-                min="100"
-                max="1000"
+                min="0"
+                max="200"
                 value="100"
+                step="1"
               />
               <label for="desenfoque">Desenfoque</label>
               <input
@@ -179,6 +180,7 @@
                 min="0"
                 max="100"
                 value="0"
+                step="1"
               />
               <label for="sepia">Sepia</label>
               <input
@@ -190,15 +192,22 @@
                 step="1"
               />
               <label for="hue">Hue</label>
-              <input type="range" id="hue" min="0" max="360" value="0" />
+              <input
+                type="range"
+                id="hue"
+                min="0"
+                max="360"
+                value="0"
+                step="1"
+              />
               <label for="saturado">Saturado</label>
               <input
                 type="range"
                 id="saturado"
-                min="100"
+                min="0"
                 max="1000"
                 value="100"
-                step="10"
+                step="1"
               />
               <label for="negativo">Negativo</label>
               <input
@@ -207,7 +216,7 @@
                 min="0"
                 max="1"
                 value="0"
-                step="0.1"
+                step="0.01"
               />
             </div>
             <!-----------------------BOTON PARA RESTABLECER FOTO--------------------------->
@@ -230,9 +239,13 @@
           <h3>SUPERIOR</h3>
           <!------------------------CAMBIA EN EL TEXTAREA TEXTO SUPERIOR --------------------------->
           <div class="contenedor-tex-superior">
-            <textarea id="tex-superior" aria-label="texto superior">
-Texto superior</textarea
-            >
+            <input
+              class="panel-tex-input"
+              id="tex-superior"
+              aria-label="texto superior"
+              placeholder="Texto superior"
+            />
+
             <div class="sin-texto">
               <!-------------------------CHECKBOX PARA ELIMINAR EL TEXTO SUPERIOR--------------------->
               <input
@@ -246,9 +259,13 @@ Texto superior</textarea
           <h3>INFERIOR</h3>
           <!------------------------CAMBIA EN EL TEXTAREA TEXTO INFERIOR --------------------------->
           <div class="contenedor-tex-inferior">
-            <textarea id="tex-inferior" aria-label="texto inferior">
-Texto inferior</textarea
-            >
+            <input
+              class="panel-tex-input"
+              id="tex-inferior"
+              aria-label="texto inferior"
+              placeholder="Texto inferior"
+            />
+
             <div class="sin-texto">
               <!-------------------------CHECKBOX PARA ELIMINAR EL TEXTO INFERIOR--------------------->
               <input
@@ -268,14 +285,14 @@ Texto inferior</textarea
               aria-label="familia de fuentes"
             >
               <option value="Arial">Arial</option>
-              <option value="Arial-Black">Arial Black</option>
-              <option value="American-Typewriter">American Typewriter</option>
-              <option value="Andale-mono">Andale mono</option>
-              <option value="Comic-Sans-Ms">Comic Sans Ms</option>
+              <option value="Arial Black">Arial Black</option>
+              <option value="American Typewriter">American Typewriter</option>
+              <option value="Andale mono">Andale mono</option>
+              <option value="Comic Sans Ms">Comic Sans Ms</option>
               <option value="Helvetica">Helvetica</option>
               <option value="Impact">Impact</option>
               <option value="Verdana">Verdana</option>
-              <option value="Times-New-Roman">Times New Roman</option>
+              <option value="Times New Roman">Times New Roman</option>
             </select>
             <div class="tamaño-posicion-tex">
               <div>
@@ -387,7 +404,7 @@ Texto inferior</textarea
               id="espaciadoTex"
               min="1"
               max="15"
-              value="12"
+              value="1"
               aria-label="espaciado"
             />
           </div>
