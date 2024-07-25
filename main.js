@@ -176,8 +176,7 @@ const colorFondoFoto = (e) => {
 
 document.getElementById("selec-fondo").onchange = () => {
   const selectedValue = document.getElementById("selec-fondo").value;
-  document.querySelector(".imagenInterna img").style.mixBlendMode =
-    selectedValue;
+  document.querySelector(".imagenInterna").style.mixBlendMode = selectedValue;
 };
 
 /*++++++++++++++++++++++++++filtros+++++++++++++++++++++++++++++++*/
@@ -329,6 +328,9 @@ const fondoTextoColor = (e) => {
     texMemeSuperior.style.position = "absolute";
     texMemeInferior.style.position = "absolute";
     texMemeInferior.style.bottom = "0px";
+    texMemeSuperior.style.top = "0px";
+    texMemeInferior.style.zIndex = "2";
+    texMemeSuperior.style.zIndex = "2";
   } else {
     contenedorTextoSuperior.style.backgroundColor = color;
     contenedorTextoInferior.style.backgroundColor = color;
