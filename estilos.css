@@ -47,7 +47,8 @@ body {
   color: rgb(204, 204, 204);
 }
 
-.texto-meme {
+#tex-meme-superior,
+#tex-meme-inferior {
   color: #000000;
   padding-block: 10px;
   width: 100%;

@@ -216,40 +216,40 @@ function restablecerFiltros() {
   aplicarFiltros();
 }
 
-// Event listeners para los controles deslizantes
 for (let key in controles) {
   controles[key].addEventListener("input", aplicarFiltros);
 }
 
-// Event listener para el botón de restablecer
 document
   .querySelector(".reestablecer-filtros")
   .addEventListener("click", restablecerFiltros);
 /*/////////////////////////PANEL  TEXTO////////////////////////// */
 
-/*+++++++++++++++++++++++++++ cambiar texto superior e inferior+++++++++++++++++*/
-
 /*************Función para actualizar textos*********************/
+
 function actualizarTextos() {
   const textoSuperior = textoSuperiorInput.value.trim();
-  contenedorTextoSuperior.textContent =
-    sinTextoSuperiorCheckbox.checked || textoSuperior === ""
-      ? ""
-      : textoSuperior;
-
   const textoInferior = textoInferiorInput.value.trim();
-  contenedorTextoInferior.textContent =
-    sinTextoInferiorCheckbox.checked || textoInferior === ""
-      ? ""
-      : textoInferior;
 
-  if (textoSuperior === "") {
-    contenedorTextoSuperior.textContent = "Texto superior";
+  if (sinTextoSuperiorCheckbox.checked) {
+    contenedorTextoSuperior.textContent = "";
+    texMemeSuperior.style.paddingBlock = "0px";
+  } else {
+    contenedorTextoSuperior.textContent =
+      textoSuperior === "" ? "Texto superior" : textoSuperior;
+    texMemeSuperior.style.paddingBlock = "10px";
   }
-  if (textoInferior === "") {
-    contenedorTextoInferior.textContent = "Texto inferior";
+
+  if (sinTextoInferiorCheckbox.checked) {
+    contenedorTextoInferior.textContent = "";
+    texMemeInferior.style.paddingBlock = "0px";
+  } else {
+    contenedorTextoInferior.textContent =
+      textoInferior === "" ? "Texto inferior" : textoInferior;
+    texMemeInferior.style.paddingBlock = "10px";
   }
 }
+
 textoSuperiorInput.addEventListener("input", actualizarTextos);
 textoInferiorInput.addEventListener("input", actualizarTextos);
 sinTextoSuperiorCheckbox.addEventListener("change", actualizarTextos);
@@ -259,19 +259,14 @@ actualizarTextos();
 
 /*+++++++++++++++++++++++++++++++++ familia de fuentes++++++++++++++++++++++++*/
 
-/******************cambiar la fuente del texto **************/
 function cambiarFuenteTexto() {
-  /***Obtener el valor seleccionado en el <select>***** */
   const nuevaFuente = familiaFuentesSelect.value;
 
-  /*** fuente al texto superior********* */
   contenedorTextoSuperior.style.fontFamily = nuevaFuente;
 
-  /****** fuente al texto inferior****/
   contenedorTextoInferior.style.fontFamily = nuevaFuente;
 }
 
-/*** evento al <select> para llamar a la función****/
 familiaFuentesSelect.addEventListener("change", cambiarFuenteTexto);
 
 cambiarFuenteTexto();
@@ -284,7 +279,6 @@ function cambiarTamañoTexto() {
   contenedorTextoInferior.style.fontSize = nuevoTamaño;
 }
 
-/***evento al <input> para llamar a la función******/
 inputTamañoTexto.addEventListener("input", cambiarTamañoTexto);
 
 cambiarTamañoTexto();
@@ -330,6 +324,7 @@ const fondoTextoColor = (e) => {
   if (fondoTransparenteCheckbox.checked) {
     contenedorTextoSuperior.style.backgroundColor = "transparent";
     contenedorTextoInferior.style.backgroundColor = "transparent";
+
     imagenTotalMeme.style.position = "relative";
     texMemeSuperior.style.position = "absolute";
     texMemeInferior.style.position = "absolute";
@@ -342,7 +337,6 @@ const fondoTextoColor = (e) => {
   }
 };
 
-/*******listener al checkbox para que llame a la función cuando cambie su estado****/
 document
   .getElementById("fondo-transparente")
   .addEventListener("change", fondoTextoColor);
